@@ -1,0 +1,276 @@
+.product{
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Urbanist';
+}
+
+.product .filterContainer{
+    width: 1188px;
+    height: 668px;
+    background: #D9D9D9;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+}
+
+.product .filterHOne{
+    width: 187px;
+    height: 48px;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    color: #205696;
+    margin-left: 2rem;
+    padding-top: 1.5rem;
+}
+
+.product .filterInput{
+    width: 811px;
+    height: 50px;
+    background: #FFFFFF;
+    margin-left: -18.4rem;
+    border: none;
+}
+
+.product .filterButtonSearchContainer{
+    margin-top: -3.23rem;
+    margin-left: 41.5rem;
+}
+
+.product .filterSearchButton{
+    width: 142px;
+    height: 51.5px;
+    background: #205696;
+    border-radius: 0px 10px 10px 0px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #FFFFFF;
+    border: none;
+}
+
+.product .filterButtonClearContainer{
+    margin-top: -3.23rem;
+    margin-left: 63rem;
+}
+
+.product .filterClearButton{
+    width: 142px;
+    height: 51.5px;
+    background: #205696;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #FFFFFF;
+    border: none;
+}
+
+.product ul{
+    list-style-type: none;
+}
+
+.product .containerCategory{
+    text-align: left;
+    width: 640px;
+    height: 370px;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 28px;
+    color: #000000;
+    overflow-y: scroll;
+}
+
+.product ::-webkit-scrollbar {
+    width: 10px;
+    border:5rem
+}
+
+.product  ::-webkit-scrollbar-track {
+    background: rgba(217, 217, 217, 0.5); 
+    border-radius: 10px
+}
+
+.product ::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 10px
+}
+
+.product  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.product .containerCategoryH{
+    margin-left: 2.5rem;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #205696;
+}
+
+.product .nextRowCategory{
+    margin-left: 20rem;
+    margin-top: -17.5rem;
+}
+
+.product li:focus{
+    color: red;
+}
+
+.product .containerBrand{
+    text-align: left;
+    margin-left: 40rem;
+    margin-top: -23.5rem;
+    width: 850px;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 28px;
+    color: #000000;
+
+}
+
+.product .containerBrandH{
+    margin-left: 2.3rem;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #205696;
+}
+
+.product .nextRowBrand{
+    margin-left: 8rem;
+    margin-top: -21rem;
+}
+
+.product .containerType{
+    text-align: left;
+    margin-left: 60rem;
+    margin-top: -24.2rem;
+    width: 850px;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 28px;
+    color: #000000;
+
+}
+
+.product .containerTypeH{
+    margin-left: 2.3rem;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #205696;
+}
+
+.product .selectOptionContainer{
+    margin-left: 60rem;
+    margin-top: 3rem;
+}
+
+.product .selectOption{
+    border: none;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: right;
+    color: #000000;
+}
+
+.product .productContainer{
+    width: 1200px;
+    margin-top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product .productContainer .imageContainer {
+    width: 262px;
+    height: 263px;
+    border-radius: 1rem;
+    border-color: #205696;
+    border-style: solid;
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    display: inline-block;
+}
+
+.product .productContainer .imageContainer .image{
+    border-radius: 1rem;
+    width: 262px;
+    height: 263px;
+}
+
+.product .productContainer .imageContainer .productName{
+    width: 262px;
+    height: 58px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    color: #205696;
+}
+
+.product .productContainer .imageContainer .productPrice{
+    margin-top: -1.13rem;
+    width: 262px;
+    height: 24px;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    color: #000000;
+}
+
+.product .pagination{
+    width: 1200px;
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    list-style-type: none;
+    font-size: 22px;
+}
+
+.product .break{
+    display: inline-block;
+}
+
+/* li */
+.product .pageItem{
+    display: inline-block;
+    padding: 1rem;
+}
+
+/* a */
+.product .pageLink{
+    color: rgb(128, 128, 128);
+    text-decoration: none;
+}
+
+.product .pageLinkActive{
+    color: black;
+}
+
+

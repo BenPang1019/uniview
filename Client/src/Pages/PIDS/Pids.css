@@ -1,0 +1,233 @@
+.pids{
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Urbanist';
+}
+
+.web{
+    display: block;
+}
+
+.mobile{
+    display: none;
+}
+
+.pids .web .containerOne{
+    width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+}
+
+.pids .web .containerOne .containerOneHOne{
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+    color: rgba(30, 30, 30, 0.8);
+}
+
+.pids .web .containerOne .containerOneHTwo{
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    color: #205696;
+}
+
+.pids .web .containerOne .containerOneHThree{
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 43px;
+    color: #1E1E1E;
+}
+
+.pids .web .containerTwo {
+    width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+}
+
+.pids .web .containerTwo .containerTwoPOne{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+}
+
+/* Mobile */
+@media (min-width: 350px) and (max-width: 480px)  {
+.pids{
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Urbanist';
+}
+
+.web{
+    display: none;
+}
+
+.mobile{
+    display: block;
+}
+
+.pids .mobile .containerOne{
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+}
+
+.pids .mobile .containerOne .containerOneHOne{
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+    color: rgba(30, 30, 30, 0.8);
+}
+
+.pids .mobile .containerOne .containerOneHTwo{
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    color: #205696;
+}
+
+.pids .mobile .containerOne .containerOneHThree{
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 43px;
+    color: #1E1E1E;
+}
+
+.pids .mobile .containerTwo {
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+}
+
+.pids .mobile .containerTwo .containerTwoPOne{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+}
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px)  {
+.pids{
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Urbanist';
+}
+
+.web{
+    display: none;
+}
+
+.mobile{
+    display: block;
+}
+
+.pids .mobile .containerOne{
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+}
+
+.pids .mobile .containerOne .containerOneHOne{
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+    color: rgba(30, 30, 30, 0.8);
+}
+
+.pids .mobile .containerOne .containerOneHTwo{
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    color: #205696;
+}
+
+.pids .mobile .containerOne .containerOneHThree{
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 43px;
+    color: #1E1E1E;
+}
+
+.pids .mobile .containerTwo {
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+}
+
+.pids .mobile .containerTwo .containerTwoPOne{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+}
+}
+
+/* 
+Small Screen */
+@media (min-width: 769px) and (max-width: 1024px)  {
+.pids{
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Urbanist';
+}
+
+.web{
+    display: none;
+}
+
+.mobile{
+    display: block;
+}
+
+.pids .mobile .containerOne{
+    width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+}
+
+.pids .mobile .containerOne .containerOneHOne{
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+    color: rgba(30, 30, 30, 0.8);
+}
+
+.pids .mobile .containerOne .containerOneHTwo{
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    color: #205696;
+}
+
+.pids .mobile .containerOne .containerOneHThree{
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 43px;
+    color: #1E1E1E;
+}
+
+.pids .mobile .containerTwo {
+    width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+}
+
+.pids .mobile .containerTwo .containerTwoPOne{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+}
+}

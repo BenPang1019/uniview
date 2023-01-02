@@ -1,0 +1,223 @@
+.productDetails{
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Urbanist';
+}
+
+.productDetails .containerOne .swiper-button-next {
+	right: 1.6rem;
+    top: 12rem;
+	color: #000 !important;
+	fill: black !important;
+	stroke: black !important;
+	width: 18.9px;
+	height: 32.39px;
+}
+
+.productDetails .containerOne .swiper-button-prev {
+	left: 1rem;
+    top: 12rem;
+	color: #000 !important;
+	fill: black !important;
+	stroke: black !important;
+	width: 18.9px;
+	height: 32.39px;
+}
+
+.productDetails .containerOne .swiper-button-next {
+    background-image: url(../../Images/ProductNext.svg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+}
+  
+.productDetails .containerOne .swiper-button-next::after {
+    display: none;
+}
+
+.productDetails .containerOne .swiper-button-prev {
+    background-image: url(../../Images/ProductNext.svg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    transform: rotate(180deg);
+}
+  
+.productDetails .containerOne .swiper-button-prev::after {
+    display: none;
+}
+
+.productDetails .container{
+    width: 80rem;
+    height: 50rem;
+    margin-top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.productDetails .containerOne{
+    width: 23rem;   
+}
+
+.productDetails .containerOne .containerOneImgOne{
+    width: 348px;
+    height: 349px;
+    border-radius: 1rem;
+    border-color: #205696;
+    border-style: solid;
+}
+
+.productDetails .containerOne .containerOneImgOne .image{
+    border-radius: 1rem;
+    width: 348px;
+    height: 349px;
+}
+
+.productDetails .containerOne .imageContainer{
+    width: 22rem;
+}
+
+.productDetails .containerOne .containerOneImgTwo{
+    margin-top: 0.5rem;
+    width: 105px;
+    height: 105px;
+    border-radius: 1rem;
+    border-color: #205696;
+    border-style: solid;
+}
+
+.productDetails .containerOne .containerOneImgTwo .image{
+    border-radius: 0.8rem;
+    width: 105px;
+    height: 105px;
+}
+
+.productDetails .containerOne .containerOneImgThree{
+    margin-left: 7.7rem;
+    margin-top: -6.9rem;
+    width: 105px;
+    height: 105px;
+    border-radius: 1rem;
+    border-color: #205696;
+    border-style: solid;
+}
+
+.productDetails .containerOne .containerOneImgThree .image{
+    border-radius: 0.8rem;
+    width: 105px;
+    height: 105px;
+}
+
+.productDetails .containerOne .containerOneImgFour{
+    margin-left: 15.3rem;
+    margin-top: -6.91rem;
+    width: 105px;
+    height: 105px;
+    border-radius: 1rem;
+    border-color: #205696;
+    border-style: solid;
+}
+
+.productDetails .containerOne .containerOneImgFour .image{
+    border-radius: 0.8rem;
+    width: 105px;
+    height: 105px;
+}
+
+.productDetails .containerOneCategory{
+    text-align: left;
+    font-size: 10px;
+}
+
+.productDetails .containerProductDetails .containerProductDetailsHOne {
+    width: 35rem;
+    color: #205696;
+    margin-top: -35rem;  
+    margin-left: 29rem;
+    text-align: left;
+}
+
+.productDetails .containerProductDetails .containerProductDetailsHTwo {
+    color: #205696;
+    width: 15rem;
+    margin-top: -6rem; 
+    margin-left: 65rem;  
+    font-weight: 500;
+}
+
+.productDetails .containerProductDetails .image {
+    color: #205696;
+    margin-left: -6.5rem;  
+}
+
+.productDetails .containerProductDetails .containerProductDetailsHThree {
+    color: #205696;
+    margin-top: 10rem;
+    margin-left: -14rem;
+}
+
+.productDetails .containerProductDetails .containerProductDetailsHFour {
+    color: #205696;
+    margin-top: -3rem;
+    margin-left: 15rem;
+}
+
+.productDetails .containerProductDetails .containerProductDetailsPOne {
+    margin-top: 2rem;
+    margin-left: 29.5rem;
+    font-size: 20px;
+    font-size: 300;
+    text-align: left;
+    width: 697px;
+    height: 196px;
+}
+
+.productDetails ::-webkit-scrollbar {
+    width: 10px;
+    border:5rem
+}
+
+.productDetails  ::-webkit-scrollbar-track {
+    background: rgba(217, 217, 217, 0.5); 
+    border-radius: 10px
+}
+
+.productDetails ::-webkit-scrollbar-thumb {
+    background: #D9D9D9;
+    border-radius: 10px
+}
+
+.productDetails  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.productDetails .button{
+    margin-left: 15rem;
+    margin-top: 4.7rem;
+}
+
+.productDetails .button .buttonBuy{
+    position: absolute;
+    width: 142px;
+    height: 50px;
+    background: #205696;
+    border-radius: 10px;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    color: #FFFFFF;
+}
+
+.productDetails .button .buttonCatalogue{
+    color: #205696;
+    position: absolute;
+    width: 300px;
+    height: 29px;
+    background-color: transparent;
+    border: none;
+    margin-left: 8rem;
+    margin-top: 0.5rem;
+    font-weight: 700;
+    font-size: 24px;
+}
