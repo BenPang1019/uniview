@@ -1,0 +1,305 @@
+.navbarN{
+   overflow: hidden;
+   text-align: center;
+}
+
+.web{
+    display: block;
+}
+
+.mobile{
+    display: none;
+}
+
+.navbarN .web ul{
+    list-style-type: none;
+}
+
+.navbarN .web .headerContainerN{
+    font-family: 'Urbanist', sans-serif;
+    background-color: #205696;
+    margin-top: 0rem;  
+    padding-bottom: 1rem;
+    padding-top: 0rem;
+    color: white;
+}
+
+.navbarN .web .headerN{
+    display: inline-block;
+    font-size: 48px;
+    margin-right: 35rem;
+    margin-left: 38rem;
+}
+
+.navbarN .web .iconN{
+    display: inline-block;
+    width: 2rem;
+}
+
+.navbarN .web .listContainerN{
+    font-family: 'Urbanist', sans-serif;
+    background-color: #193960;
+    margin-top: 0rem;
+}
+
+.navbarN .web .listItems{
+    display: inline-block;
+    font-size: 24px;
+    padding: 1.2rem;
+    padding-left: 7rem;
+}
+
+.navbarN .web .listItemsLink{
+    color: white;
+    text-decoration: none;
+}
+
+.navbarN .web .firstListItems{
+    margin-left: -7.6rem;
+}
+
+/* Mobile */
+@media (min-width: 350px) and (max-width: 480px)  {
+.navbarN{
+    overflow: hidden;
+    text-align: center;
+}
+
+.web{
+    display: none;
+}
+
+.mobile{
+    display: block;
+}
+
+.navbarN .mobile ul{
+    list-style-type: none; 
+}
+
+.navbarN .mobile .inlineF{
+    display: inline-block;
+}
+
+.navbarN .mobile .headerContainerN{
+    font-family: 'Urbanist', sans-serif;
+    background-color: #205696;
+    color: white;
+    
+}
+
+.navbarN .mobile .headerN{
+    font-size: 40px;
+    margin-left: 5rem;
+    margin-right: 3rem;
+    margin-top: 3rem;
+}
+
+.navbarN .mobile .iconN{
+    width: 2rem;
+}
+
+.navbarN .mobile .navIcon{
+    width: 2rem;
+    margin-bottom: -0.3rem;
+    
+}
+
+.navbarN .mobile .listContainerN{
+    font-family: 'Urbanist', sans-serif;
+    background-color: #193960;
+    width: 100%;
+    height: 101%;
+    margin-top: -8rem;
+    position: fixed;
+    z-index: 2;
+}
+
+.navbarN .mobile .listItems{
+    font-size: 24px;
+    padding: 1rem;
+    margin-left: -4rem;
+}
+
+.navbarN .mobile .listItemsLink{
+    color: white;
+    text-decoration: none;
+}
+
+.navbarN .mobile .firstListItems{
+    margin-top: 3rem;
+}
+
+.navbarN .mobile .close{
+    width: 1.3rem;
+}
+
+.navbarN .mobile .closeContainer{
+    margin-top: -18rem;
+    margin-left: 12rem;
+}
+
+}
+
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px)  {
+.navbarN{
+    overflow: hidden;
+    text-align: center;
+}
+
+.web{
+    display: none;
+}
+
+.mobile{
+    display: block;
+}
+
+.navbarN .mobile ul{
+    list-style-type: none; 
+}
+
+.navbarN .mobile .inlineF{
+    display: inline-block;
+}
+
+.navbarN .mobile .headerContainerN{
+    font-family: 'Urbanist', sans-serif;
+    background-color: #205696;
+    color: white;
+}
+
+.navbarN .mobile .headerN{
+    font-size: 40px;
+    margin-left: 5rem;
+    margin-right: 3rem;
+    margin-top: 3rem;
+}
+
+.navbarN .mobile .iconN{
+    width: 2rem;
+}
+
+.navbarN .mobile .navIcon{
+    width: 2rem;
+    margin-bottom: -0.3rem;
+}
+
+.navbarN .mobile .listContainerN{
+    font-family: 'Urbanist', sans-serif;
+    background-color: #193960;
+    /* background-image: linear-gradient( #193960); */
+    margin-top: -8rem;
+    width: 100%;
+    height: 101%;
+    position: fixed;
+    overflow-y: hidden;
+}
+
+.navbarN .mobile .listItems{
+    font-size: 30px;
+    padding: 1rem;
+    margin-left: -4rem;
+}
+
+.navbarN .mobile .listItemsLink{
+    color: white;
+    text-decoration: none;
+}
+
+.navbarN .mobile .firstListItems{
+    margin-top: 3rem;
+}
+
+.navbarN .mobile .close{
+    width: 1.3rem;
+}
+
+.navbarN .mobile .closeContainer{
+    margin-top: -20.5rem;
+    margin-left: 14rem;
+}
+}
+
+/* Small Screen */
+@media (min-width: 769px) and (max-width: 1024px)  {
+.navbarN{
+    overflow: hidden;
+    text-align: center;
+}
+
+.web{
+    display: none;
+}
+
+.mobile{
+    display: block;
+}
+
+.navbarN .mobile ul{
+    list-style-type: none; 
+}
+
+.navbarN .mobile .inlineF{
+    display: inline-block;
+}
+
+.navbarN .mobile .headerContainerN{
+    font-family: 'Urbanist', sans-serif;
+    background-color: #205696;
+    color: white;
+}
+
+.navbarN .mobile .headerN{
+    font-size: 40px;
+    margin-left: 5rem;
+    margin-right: 3rem;
+    margin-top: 3rem;
+}
+
+.navbarN .mobile .iconN{
+    width: 2rem;
+}
+
+.navbarN .mobile .navIcon{
+    width: 2rem;
+    margin-bottom: -0.3rem;
+    transition: ease-in;
+}
+
+.navbarN .mobile .listContainerN{
+    font-family: 'Urbanist', sans-serif;
+    background-color: #193960;
+    margin-top: -8rem;
+    width: 100%;
+    height: 101%;
+    position: fixed;
+    overflow-y: hidden;
+}
+
+.navbarN .mobile .listItems{
+    font-size: 32px;
+    padding: 1rem;
+    margin-left: -4rem;
+}
+
+.navbarN .mobile .listItemsLink{
+    color: white;
+    text-decoration: none;
+}
+
+.navbarN .mobile .firstListItems{
+    margin-top: 3rem;
+}
+
+.navbarN .mobile .close{
+    width: 1.3rem;
+}
+
+.navbarN .mobile .closeContainer{
+    margin-top: -20.5rem;
+    margin-left: 17rem;
+}
+}

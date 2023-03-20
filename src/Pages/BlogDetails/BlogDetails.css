@@ -1,0 +1,74 @@
+/* .blogDetails{
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Urbanist';
+    margin-top: -1rem;
+}
+
+.web{
+    display: block;
+}
+
+.mobile{
+    display: none;
+}
+
+.blogDetails .newsImage{
+    height: 430px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.blogDetails .containerOne{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80rem;
+    margin-top: 5rem;
+}
+
+.blogDetails .containerOneHOne{
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+    text-align: center;
+    color: rgba(30, 30, 30, 0.8);
+}
+
+.blogDetails .containerOneHTwo{
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    text-align: center;
+    color: #205696;
+}
+
+.blogDetails .containerOneHThree{
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 43px;
+    text-align: center;
+    color: #1E1E1E;
+}
+
+.blogDetails .containerTwo{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80rem;
+    margin-top: 5rem;
+}
+
+.blogDetails .description{
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #000000;
+} */

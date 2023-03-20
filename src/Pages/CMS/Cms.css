@@ -1,0 +1,237 @@
+.cms{
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Urbanist';
+    height: 100%;
+}
+
+.web{
+    display: block;
+}
+
+.mobile{
+    display: none;
+}
+
+.cms .web .containerOne{
+    width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+}
+
+.cms .web .containerOne .containerOneHOne{
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+    color: rgba(30, 30, 30, 0.8);
+}
+
+.cms .web .containerOne .containerOneHTwo{
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    color: #205696;
+}
+
+.cms .web .containerOne .containerOneHThree{
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 43px;
+    color: #1E1E1E;
+}
+
+.cms .web .containerTwo {
+    width: 45rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+}
+
+.cms .web .containerTwo .containerTwoPOne{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+}
+
+
+/* Mobile */
+@media (min-width: 350px) and (max-width: 480px)  {
+.cms{
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Urbanist';
+    height: 100%;
+}
+
+.web{
+    display: block;
+}
+
+.mobile{
+    display: none;
+}
+
+.cms .mobile .containerOne{
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+}
+
+.cms .mobile .containerOne .containerOneHOne{
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+    color: rgba(30, 30, 30, 0.8);
+}
+
+.cms .mobile .containerOne .containerOneHTwo{
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    color: #205696;
+}
+
+.cms .mobile .containerOne .containerOneHThree{
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 43px;
+    color: #1E1E1E;
+}
+
+.cms .mobile .containerTwo {
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+}
+
+.cms .mobile .containerTwo .containerTwoPOne{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+}
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px)  {
+.cms{
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Urbanist';
+    height: 100%;
+}
+
+.web{
+    display: block;
+}
+
+.mobile{
+    display: none;
+}
+
+.cms .mobile .containerOne{
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+}
+
+.cms .mobile .containerOne .containerOneHOne{
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+    color: rgba(30, 30, 30, 0.8);
+}
+
+.cms .mobile .containerOne .containerOneHTwo{
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    color: #205696;
+}
+
+.cms .mobile .containerOne .containerOneHThree{
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 43px;
+    color: #1E1E1E;
+}
+
+.cms .mobile .containerTwo {
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+}
+
+.cms .mobile .containerTwo .containerTwoPOne{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+}
+}
+
+/* Small Screen */
+@media (min-width: 769px) and (max-width: 1024px)  {
+.cms{
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Urbanist';
+    height: 100%;
+}
+
+.web{
+    display: block;
+}
+
+.mobile{
+    display: none;
+}
+
+.cms .mobile .containerOne{
+    width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+}
+
+.cms .mobile .containerOne .containerOneHOne{
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+    color: rgba(30, 30, 30, 0.8);
+}
+
+.cms .mobile .containerOne .containerOneHTwo{
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    color: #205696;
+}
+
+.cms .mobile .containerOne .containerOneHThree{
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 43px;
+    color: #1E1E1E;
+}
+
+.cms .mobile .containerTwo {
+    width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+}
+
+.cms .mobile .containerTwo .containerTwoPOne{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+}
+}

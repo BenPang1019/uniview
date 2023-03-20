@@ -1,0 +1,234 @@
+.blog{
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Urbanist';
+    margin-top: -1rem;
+}
+
+.web{
+    display: block;
+}
+
+.mobile{
+    display: none;
+}
+
+.blog .web .containerOne{
+    margin-top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90rem;
+}
+
+.blog .web .containerOneHeader{
+    font-size: 40px;
+    font-weight: 700;
+    color: #205696;
+}
+
+.blog .web .containerOneHeaderNew{
+    margin-left: -32rem;
+    font-size: 40px;
+    font-weight: 700;
+    color: #205696;
+}
+
+.blog .web .containerOnePrg{
+    width: 19rem;
+    text-align: left;
+    margin-top: -6rem;
+    margin-left: 1.5rem;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+}
+
+.blog .web .containerOneCard{
+    display: inline-block;
+    padding-right: 1rem;
+}
+
+.blog .web .containerOneCard .image{
+    width: 357px;
+    height: 357px;
+    border-radius: 10px;
+}
+
+.blog .web .inline{
+    display: inline-block;
+    padding: 20px;
+}
+
+.blog .web .newsContainer{
+    width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Mobile */
+@media (min-width: 350px) and (max-width: 480px)  {
+.blog{
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Urbanist';
+}
+
+.web{
+    display: none;
+}
+
+.mobile{
+    display: block;
+}
+
+
+.blog .mobile .containerOne{
+    margin-top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+}
+
+.blog .mobile .containerOneHeader{
+    font-size: 40px;
+    font-weight: 700;
+    color: #205696;
+}
+
+.blog .mobile .containerOneHeaderNew{
+    margin-left: -32rem;
+    font-size: 40px;
+    font-weight: 700;
+    color: #205696;
+}
+
+.blog .mobile .containerOnePrg{
+    width: 330px;
+    text-align: left;
+    margin-top: -6rem;
+    margin-left: 1.5rem;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+}
+
+.blog .mobile .containerOneCard{
+    margin-bottom: 5rem;
+}
+
+.blog .mobile .containerOneCard .image{
+    width: 21rem;
+}
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px)  {
+.blog{
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Urbanist';
+}
+
+.web{
+    display: none;
+}
+
+.mobile{
+    display: block;
+}
+
+
+.blog .mobile .containerOne{
+    margin-top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 480px;
+}
+
+.blog .mobile .containerOneHeader{
+    font-size: 40px;
+    font-weight: 700;
+    color: #205696;
+}
+
+.blog .mobile .containerOneHeaderNew{
+    margin-left: -32rem;
+    font-size: 40px;
+    font-weight: 700;
+    color: #205696;
+}
+
+.blog .mobile .containerOnePrg{
+    width: 320px;
+    text-align: left;
+    margin-top: -6rem;
+    margin-left: 5rem;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+}
+
+.blog .mobile .containerOneCard{
+    margin-bottom: 5rem;
+}
+
+.blog .mobile .containerOneCard .image{
+    width: 21rem;
+}
+}
+
+/* Small Screen */
+@media (min-width: 769px) and (max-width: 1024px)  {
+.blog{
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Urbanist';
+}
+
+.web{
+    display: none;
+}
+
+.mobile{
+    display: block;
+}
+
+
+.blog .mobile .containerOne{
+    margin-top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 768px;
+}
+
+.blog .mobile .containerOneHeader{
+    font-size: 40px;
+    font-weight: 700;
+    color: #205696;
+}
+
+.blog .mobile .containerOneHeaderNew{
+    margin-left: -32rem;
+    font-size: 40px;
+    font-weight: 700;
+    color: #205696;
+}
+
+.blog .mobile .containerOnePrg{
+    width: 320px;
+    text-align: left;
+    margin-top: -6rem;
+    margin-left: 14rem;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+}
+
+.blog .mobile .containerOneCard{
+    margin-bottom: 5rem;
+}
+
+.blog .mobile .containerOneCard .image{
+    width: 21rem;
+}
+}
