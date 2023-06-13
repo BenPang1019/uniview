@@ -27,8 +27,8 @@
 .navbarN .web .headerN{
     display: inline-block;
     font-size: 48px;
-    margin-right: 35rem;
-    margin-left: 38rem;
+    margin-right: 30rem;
+    margin-left: 35rem;
 }
 
 .navbarN .web .iconN{
@@ -95,6 +95,20 @@
     margin-top: 3rem;
 }
 
+.navbarN .mobile .iconMenu{
+    position: absolute;
+    left: 0;
+    margin-left: 1rem;
+    margin-top: 3.7rem;
+    z-index: 3;
+    width: 2rem;
+}
+
+.navbarN .mobile .iconMenu:active{
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
 .navbarN .mobile .iconN{
     width: 2rem;
 }
@@ -105,16 +119,6 @@
     
 }
 
-.navbarN .mobile .listContainerN{
-    font-family: 'Urbanist', sans-serif;
-    background-color: #193960;
-    width: 100%;
-    height: 101%;
-    margin-top: -8rem;
-    position: fixed;
-    z-index: 2;
-}
-
 .navbarN .mobile .listItems{
     font-size: 24px;
     padding: 1rem;
@@ -122,8 +126,16 @@
 }
 
 .navbarN .mobile .listItemsLink{
-    color: white;
+    color: #FFFFFF;
     text-decoration: none;
+    position: relative;
+    height: 40px;
+    padding-top: 1rem;
+    display: block;
+    font-size: 24px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .navbarN .mobile .firstListItems{
@@ -137,6 +149,41 @@
 .navbarN .mobile .closeContainer{
     margin-top: -18rem;
     margin-left: 12rem;
+}
+
+.navbarN .mobile .navbarContainer {
+    width: 100%;
+    height: 105%;
+    position: fixed;
+    z-index: 2;
+    background: #193960;
+    margin-top: -8rem;
+}
+  
+.navbarContainerShow {
+    animation: slideDown 0.5s ease-out forwards;
+}
+
+.navbarContainerHide {
+    animation: slideUp 0.5s ease-in forwards;
+}
+  
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(-170%);
+    }
 }
 
 }
@@ -169,6 +216,7 @@
     font-family: 'Urbanist', sans-serif;
     background-color: #205696;
     color: white;
+    
 }
 
 .navbarN .mobile .headerN{
@@ -178,6 +226,20 @@
     margin-top: 3rem;
 }
 
+.navbarN .mobile .iconMenu{
+    position: absolute;
+    left: 0;
+    margin-left: 2rem;
+    margin-top: 3.7rem;
+    z-index: 3;
+    width: 2rem;
+}
+
+.navbarN .mobile .iconMenu:active{
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
 .navbarN .mobile .iconN{
     width: 2rem;
 }
@@ -185,28 +247,26 @@
 .navbarN .mobile .navIcon{
     width: 2rem;
     margin-bottom: -0.3rem;
-}
-
-.navbarN .mobile .listContainerN{
-    font-family: 'Urbanist', sans-serif;
-    background-color: #193960;
-    /* background-image: linear-gradient( #193960); */
-    margin-top: -8rem;
-    width: 100%;
-    height: 101%;
-    position: fixed;
-    overflow-y: hidden;
+    
 }
 
 .navbarN .mobile .listItems{
-    font-size: 30px;
+    font-size: 24px;
     padding: 1rem;
     margin-left: -4rem;
 }
 
 .navbarN .mobile .listItemsLink{
-    color: white;
+    color: #FFFFFF;
     text-decoration: none;
+    position: relative;
+    height: 40px;
+    padding-top: 1rem;
+    display: block;
+    font-size: 24px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .navbarN .mobile .firstListItems{
@@ -218,13 +278,48 @@
 }
 
 .navbarN .mobile .closeContainer{
-    margin-top: -20.5rem;
-    margin-left: 14rem;
+    margin-top: -18rem;
+    margin-left: 12rem;
+}
+
+.navbarN .mobile .navbarContainer {
+    width: 100%;
+    height: 105%;
+    position: fixed;
+    z-index: 2;
+    background: #193960;
+    margin-top: -8rem;
+}
+  
+.navbarContainerShow {
+    animation: slideDown 0.5s ease-out forwards;
+}
+
+.navbarContainerHide {
+    animation: slideUp 0.5s ease-in forwards;
+}
+  
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(-120%);
+    }
 }
 }
 
 /* Small Screen */
-@media (min-width: 769px) and (max-width: 1024px)  {
+@media (min-width: 769px) and (max-width: 1340px)  {
 .navbarN{
     overflow: hidden;
     text-align: center;
@@ -250,6 +345,7 @@
     font-family: 'Urbanist', sans-serif;
     background-color: #205696;
     color: white;
+    
 }
 
 .navbarN .mobile .headerN{
@@ -259,6 +355,20 @@
     margin-top: 3rem;
 }
 
+.navbarN .mobile .iconMenu{
+    position: absolute;
+    left: 0;
+    margin-left: 2rem;
+    margin-top: 3.7rem;
+    z-index: 3;
+    width: 2rem;
+}
+
+.navbarN .mobile .iconMenu:active{
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
 .navbarN .mobile .iconN{
     width: 2rem;
 }
@@ -266,28 +376,26 @@
 .navbarN .mobile .navIcon{
     width: 2rem;
     margin-bottom: -0.3rem;
-    transition: ease-in;
-}
-
-.navbarN .mobile .listContainerN{
-    font-family: 'Urbanist', sans-serif;
-    background-color: #193960;
-    margin-top: -8rem;
-    width: 100%;
-    height: 101%;
-    position: fixed;
-    overflow-y: hidden;
+    
 }
 
 .navbarN .mobile .listItems{
-    font-size: 32px;
+    font-size: 24px;
     padding: 1rem;
     margin-left: -4rem;
 }
 
 .navbarN .mobile .listItemsLink{
-    color: white;
+    color: #FFFFFF;
     text-decoration: none;
+    position: relative;
+    height: 40px;
+    padding-top: 1rem;
+    display: block;
+    font-size: 24px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .navbarN .mobile .firstListItems{
@@ -299,7 +407,42 @@
 }
 
 .navbarN .mobile .closeContainer{
-    margin-top: -20.5rem;
-    margin-left: 17rem;
+    margin-top: -18rem;
+    margin-left: 12rem;
+}
+
+.navbarN .mobile .navbarContainer {
+    width: 100%;
+    height: 105%;
+    position: fixed;
+    z-index: 2;
+    background: #193960;
+    margin-top: -8rem;
+}
+  
+.navbarContainerShow {
+    animation: slideDown 0.5s ease-out forwards;
+}
+
+.navbarContainerHide {
+    animation: slideUp 0.5s ease-in forwards;
+}
+  
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(-120%);
+    }
 }
 }

@@ -278,6 +278,7 @@
     font-weight: 500;
     color: #1E1E1E;
     transition: all .2s ease-in-out; 
+    cursor: pointer;
 }
 
 .home .web .containerFiveCardMorePrg:hover{
@@ -401,7 +402,7 @@
 }
 
 .home .mobile .image{
-    width: 480px;
+    width: 100%;
     margin-top: -1rem;
 }
 
@@ -419,7 +420,7 @@
     font-family: 'Urbanist';
     font-style: normal;
     font-weight: 600;
-    font-size: 30px;
+    font-size: 20px;
     line-height: 48px;
     color: #205696;
 }
@@ -429,14 +430,11 @@
     font-family: 'Urbanist';
     font-style: normal;
     font-weight: 300;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 29px;
     color: #000000;
 }
 
-.home .mobile .mySwiper{
-    
-}
 
 .home .mobile .container-card{
     text-align: center;
@@ -491,14 +489,17 @@
 }
 
 .home .mobile .containerThree-h{
-    font-size: 40px;
+    font-size: 20px;
     color: #205696;
 }
 
 .home .mobile .containerThree-p{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 300;
     color: #000000;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .home .mobile .container-image{
@@ -555,21 +556,20 @@
     margin-right: auto;
 }
 
-.home .mobile .containerFourCard{
-    
-}
-
 
 .home .mobile .containerFourHeader{
-    font-size: 40px;
+    font-size: 20px;
 }
 
 .home .mobile .containerFourPrgOne{
-    font-size: 24px;
+    font-size: 18px;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .home .mobile .containerFourPrgTwo{
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
 }
 
@@ -579,22 +579,22 @@
 
 .home .mobile .containerFour .swiper-button-next {
     right: 5rem;
-    top: 22rem;
+    top: 18rem;
     color: #000 !important;
     fill: black !important;
     stroke: black !important;
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
 }
 
 .home .mobile .containerFour .swiper-button-prev {
     left: 5rem;
-    top: 22rem;
+    top: 18rem;
     color: #000 !important;
     fill: black !important;
     stroke: black !important;
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
 }
 
 .home .mobile .containerFive{
@@ -605,13 +605,13 @@
 }
 
 .home .mobile .containerFiveHeader{
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 700;
     color: #205696;
 }
 
 .home .mobile .containerFiveHeaderNew{
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 700;
     color: #205696;
 }
@@ -641,8 +641,7 @@
 .home .mobile .containerFiveCardMore{
     background-color: #D9D9D9;
     display: inline-block;
-    min-width: 340px;
-    max-width: 480px;
+    min-width: 330px;
     height: 15.6rem;
     line-height: 2rem;
     border-radius: 10px;
@@ -651,7 +650,7 @@
 
 .home .mobile ol{
     color: #205696;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
 }
 
@@ -660,6 +659,7 @@
     text-align: right;
     font-weight: 500;
     color: #1E1E1E;
+    cursor: pointer;
 }
 
 .home .mobile .More{
@@ -671,13 +671,13 @@
 
 .home .mobile .containerSixHeader{
     color: #205696;
-    font-size: 48px;
+    font-size: 30px;
     font-weight: 700;
 }
 
 .home .mobile .prgCotainer{
-    width: 349px;
-    height: 700px;
+    width: 350px;
+    height: 750px;
     color: white;
     background-color: #205696;
     padding-top: 2rem;
@@ -688,6 +688,7 @@
     line-height: 19px;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 10px;
 }
 
 .home .mobile .containerSix{
@@ -698,20 +699,18 @@
 }
 
 .home .mobile .containerSixImage{
-    min-width: 349px;
-    max-width: 480px;
+    width: 350px;
 }
 
 .home .mobile .containerSixImageW{
-    min-width: 349px;
-    max-width: 480px;
+    width: 350px;
     height: 210px;
     border-radius: 10px;
 }
 
 
 .home .mobile .containerSix .swiper-pagination {
-    top: 60rem;
+    top: 63rem;
     right: 85rem;
     text-align: center;
     transition: 300ms opacity;
@@ -732,6 +731,23 @@
 
 .home .mobile .grow:hover { 
     transform: scale(1.1); 
+}
+
+.home .mobile .containerSixCardPrg{
+    position: relative;
+    text-align: left;
+    color: white;
+    width: 300px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    margin-left: auto;
+    margin-right: auto;
 }
 }
 
@@ -752,7 +768,7 @@
 }
 
 .home .mobile .image{
-    width: 768px;
+    width: 100%;
     margin-top: -1rem;
 }
 
@@ -770,7 +786,7 @@
     font-family: 'Urbanist';
     font-style: normal;
     font-weight: 600;
-    font-size: 30px;
+    font-size: 20px;
     line-height: 48px;
     color: #205696;
 }
@@ -780,17 +796,19 @@
     font-family: 'Urbanist';
     font-style: normal;
     font-weight: 300;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 29px;
     color: #000000;
 }
 
+
 .home .mobile .container-card{
     text-align: center;
-    width:349px;
+    width:400px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5rem;
+    
 }
 
 .home .mobile .card{
@@ -837,14 +855,17 @@
 }
 
 .home .mobile .containerThree-h{
-    font-size: 40px;
+    font-size: 20px;
     color: #205696;
 }
 
 .home .mobile .containerThree-p{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 300;
     color: #000000;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .home .mobile .container-image{
@@ -895,22 +916,25 @@
     padding-bottom: 3rem;
     margin-top: 5rem;
     color: white;
-    min-width: 480px;
-    max-width: 768px;
+    width: 400px;
     margin-left: auto;
     margin-right: auto;
 }
 
+
 .home .mobile .containerFourHeader{
-    font-size: 40px;
+    font-size: 20px;
 }
 
 .home .mobile .containerFourPrgOne{
-    font-size: 24px;
+    font-size: 18px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .home .mobile .containerFourPrgTwo{
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
 }
 
@@ -920,22 +944,22 @@
 
 .home .mobile .containerFour .swiper-button-next {
     right: 5rem;
-    top: 20rem;
+    top: 18rem;
     color: #000 !important;
     fill: black !important;
     stroke: black !important;
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
 }
 
 .home .mobile .containerFour .swiper-button-prev {
     left: 5rem;
-    top: 20rem;
+    top: 18rem;
     color: #000 !important;
     fill: black !important;
     stroke: black !important;
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
 }
 
 .home .mobile .containerFive{
@@ -946,13 +970,13 @@
 }
 
 .home .mobile .containerFiveHeader{
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 700;
     color: #205696;
 }
 
 .home .mobile .containerFiveHeaderNew{
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 700;
     color: #205696;
 }
@@ -982,8 +1006,7 @@
 .home .mobile .containerFiveCardMore{
     background-color: #D9D9D9;
     display: inline-block;
-    min-width: 340px;
-    max-width: 480px;
+    width: 330px;
     height: 15.6rem;
     line-height: 2rem;
     border-radius: 10px;
@@ -992,7 +1015,7 @@
 
 .home .mobile ol{
     color: #205696;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
 }
 
@@ -1001,6 +1024,7 @@
     text-align: right;
     font-weight: 500;
     color: #1E1E1E;
+    cursor: pointer;
 }
 
 .home .mobile .More{
@@ -1012,13 +1036,13 @@
 
 .home .mobile .containerSixHeader{
     color: #205696;
-    font-size: 48px;
+    font-size: 30px;
     font-weight: 700;
 }
 
 .home .mobile .prgCotainer{
-    width: 480px;
-    height: 700px;
+    width: 400px;
+    height: 750px;
     color: white;
     background-color: #205696;
     padding-top: 2rem;
@@ -1029,30 +1053,29 @@
     line-height: 19px;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 10px;
 }
 
 .home .mobile .containerSix{
     margin-top: 5rem; 
-    width: 480px;
+    width: 400px;
     margin-right: auto;
     margin-left: auto;
 }
 
 .home .mobile .containerSixImage{
-    min-width: 349px;
-    max-width: 480px;
+    width: 400px;
 }
 
 .home .mobile .containerSixImageW{
-    min-width: 480px;
-    max-width: 768px;
+    width: 400px;
     height: 210px;
     border-radius: 10px;
 }
 
 
 .home .mobile .containerSix .swiper-pagination {
-    top: 60rem;
+    top: 63rem;
     right: 85rem;
     text-align: center;
     transition: 300ms opacity;
@@ -1074,11 +1097,28 @@
 .home .mobile .grow:hover { 
     transform: scale(1.1); 
 }
+
+.home .mobile .containerSixCardPrg{
+    position: relative;
+    text-align: left;
+    color: white;
+    width: 370px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    margin-left: auto;
+    margin-right: auto;
+}
 }
 
 /* 
 Small Screen */
-@media (min-width: 769px) and (max-width: 1024px)  {
+@media (min-width: 769px) and (max-width: 1340px)  {
 .home {
     overflow: hidden;
     text-align: center;
@@ -1094,7 +1134,7 @@ Small Screen */
 }
 
 .home .mobile .image{
-    width: 1024px;
+    width: 100%;
     margin-top: -1rem;
 }
 
@@ -1112,7 +1152,7 @@ Small Screen */
     font-family: 'Urbanist';
     font-style: normal;
     font-weight: 600;
-    font-size: 30px;
+    font-size: 20px;
     line-height: 48px;
     color: #205696;
 }
@@ -1122,10 +1162,11 @@ Small Screen */
     font-family: 'Urbanist';
     font-style: normal;
     font-weight: 300;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 29px;
     color: #000000;
 }
+
 
 .home .mobile .container-card{
     text-align: center;
@@ -1133,6 +1174,7 @@ Small Screen */
     margin-left: auto;
     margin-right: auto;
     margin-top: 5rem;
+    
 }
 
 .home .mobile .card{
@@ -1179,14 +1221,17 @@ Small Screen */
 }
 
 .home .mobile .containerThree-h{
-    font-size: 40px;
+    font-size: 20px;
     color: #205696;
 }
 
 .home .mobile .containerThree-p{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 300;
     color: #000000;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .home .mobile .container-image{
@@ -1237,22 +1282,25 @@ Small Screen */
     padding-bottom: 3rem;
     margin-top: 5rem;
     color: white;
-    min-width: 480px;
-    max-width: 768px;
+    width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
 
+
 .home .mobile .containerFourHeader{
-    font-size: 40px;
+    font-size: 24px;
 }
 
 .home .mobile .containerFourPrgOne{
-    font-size: 24px;
+    font-size: 22px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .home .mobile .containerFourPrgTwo{
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
 }
 
@@ -1262,39 +1310,39 @@ Small Screen */
 
 .home .mobile .containerFour .swiper-button-next {
     right: 5rem;
-    top: 20rem;
+    top: 18rem;
     color: #000 !important;
     fill: black !important;
     stroke: black !important;
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
 }
 
 .home .mobile .containerFour .swiper-button-prev {
     left: 5rem;
-    top: 20rem;
+    top: 18rem;
     color: #000 !important;
     fill: black !important;
     stroke: black !important;
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
 }
 
 .home .mobile .containerFive{
-    width: 400px;
+    width: 349px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5rem;
 }
 
 .home .mobile .containerFiveHeader{
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 700;
     color: #205696;
 }
 
 .home .mobile .containerFiveHeaderNew{
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 700;
     color: #205696;
 }
@@ -1324,8 +1372,7 @@ Small Screen */
 .home .mobile .containerFiveCardMore{
     background-color: #D9D9D9;
     display: inline-block;
-    min-width: 340px;
-    max-width: 480px;
+    min-width: 330px;
     height: 15.6rem;
     line-height: 2rem;
     border-radius: 10px;
@@ -1334,7 +1381,7 @@ Small Screen */
 
 .home .mobile ol{
     color: #205696;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
 }
 
@@ -1343,6 +1390,7 @@ Small Screen */
     text-align: right;
     font-weight: 500;
     color: #1E1E1E;
+    cursor: pointer;
 }
 
 .home .mobile .More{
@@ -1354,13 +1402,13 @@ Small Screen */
 
 .home .mobile .containerSixHeader{
     color: #205696;
-    font-size: 48px;
+    font-size: 30px;
     font-weight: 700;
 }
 
 .home .mobile .prgCotainer{
-    width: 480px;
-    height: 700px;
+    width: 600px;
+    height: 750px;
     color: white;
     background-color: #205696;
     padding-top: 2rem;
@@ -1371,30 +1419,29 @@ Small Screen */
     line-height: 19px;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 10px;
 }
 
 .home .mobile .containerSix{
     margin-top: 5rem; 
-    width: 480px;
+    width: 600px;
     margin-right: auto;
     margin-left: auto;
 }
 
 .home .mobile .containerSixImage{
-    min-width: 349px;
-    max-width: 480px;
+    width: 600px;
 }
 
 .home .mobile .containerSixImageW{
-    min-width: 480px;
-    max-width: 768px;
-    height: 210px;
+    width: 600px;
+    height: 300px;
     border-radius: 10px;
 }
 
 
 .home .mobile .containerSix .swiper-pagination {
-    top: 60rem;
+    top: 63rem;
     right: 85rem;
     text-align: center;
     transition: 300ms opacity;
@@ -1415,5 +1462,22 @@ Small Screen */
 
 .home .mobile .grow:hover { 
     transform: scale(1.1); 
+}
+
+.home .mobile .containerSixCardPrg{
+    position: relative;
+    text-align: left;
+    color: white;
+    width: 500px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    margin-left: auto;
+    margin-right: auto;
 }
 }

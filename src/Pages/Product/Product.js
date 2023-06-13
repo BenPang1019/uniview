@@ -4,7 +4,7 @@ import Footer from '../../Components/Footer/Footer'
 import axios from 'axios';
 import './Product.css'
 import PopularOne from '../../Images/PopularOne.svg'
-import { Link,useNavigate,createSearchParams } from 'react-router-dom'
+import { Link,useLocation } from 'react-router-dom'
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -15,9 +15,9 @@ import {motion} from "framer-motion"
 
 
 export const Product = () =>{
-      const axiosInstance = axios.create({
-        baseURL:process.env.REACT_APP_API_URL,
-    });
+    const axiosInstance = axios.create({baseURL:process.env.REACT_APP_API_URL,});
+    const location = useLocation();
+  
     const [active1,setActive1] = useState(false)
     const [active2,setActive2] = useState(false)
     const [active3,setActive3] = useState(false)
@@ -35,7 +35,7 @@ export const Product = () =>{
     const [products, setProducts] = useState([]);
     const [totalPages, setTotalPages] = useState(1);
     const [currentPage, setCurrentPage] = useState(1);
-    const [category, setCategory] = useState("");
+    const [category, setCategory] = useState(location.state?location.state.product.category:"");
     const [subcategory, setSubcategory] = useState("");
     const [type, setType] = useState("");
     const [brand, setBrand] = useState("");
@@ -46,7 +46,7 @@ export const Product = () =>{
     const scrollToTop = () => {
       window.scrollTo(0, 0)
     }
-  
+
     useEffect(() => {
       fetchProducts();
     }, [currentPage, category, subcategory, type, brand, search]);
@@ -212,9 +212,14 @@ export const Product = () =>{
       setSearch(document.getElementById("search-input").value);
     }
 
+    const handleSearchF = (event) => {
+      event.preventDefault(); // prevent page from reloading
+      setSearch(event.target.search.value);
+    }
+
 
     return(
-        <motion.div className='product' intial={{ width:0}} animate={{ width:'100%' }} exit={{ x:window.innerWidth,transition:{duration:0.2} }}>
+        <motion.div className='product' >
         <Helmet>
           <meta name="author" content="https://wdatechnology.com" />
           <title>Our Product | Uniview Solution Sdn Bhd</title>
@@ -270,7 +275,8 @@ export const Product = () =>{
                           <input type="radio" name="subCat" value="Network Patch Panels" checked={subcategory === "Network Patch Panels"} onChange={handleSubcategoryChange}/><label>Network Patch Panels</label><br/>
                           <input type="radio" name="subCat" value="PoE Solution" checked={subcategory === "PoE Solution"} onChange={handleSubcategoryChange}/><label>PoE Solution</label><br/>
                           <input type="radio" name="subCat" value="Power Supply" checked={subcategory === "Power Supply"} onChange={handleSubcategoryChange}/><label>Power Supply</label><br/>
-                          <input type="radio" name="subCat" value="Surge Protector" checked={subcategory === "Surge Protector"} onChange={handleSubcategoryChange}/><label>Surge Protector</label>
+                          <input type="radio" name="subCat" value="Surge Protector" checked={subcategory === "Surge Protector"} onChange={handleSubcategoryChange}/><label>Surge Protector</label><br/>
+                          <input type="radio" name="subCat" value="Parking System Accessories" checked={subcategory === "Parking System Accessories"} onChange={handleSubcategoryChange}/><label>Parking System Accessories</label>
                         </div>
                       }
                       <input type="radio" name='category' value="Auto Door System" checked={category === "Auto Door System"} onChange={handleCategoryChange}/><label onClick={()=>{setActive3(!active3)}} style={{ cursor:'pointer' }}>Auto Door System +</label><br/>
@@ -296,7 +302,9 @@ export const Product = () =>{
                           <input type="radio" name="subCat" value="DAHUA" checked={subcategory === "DAHUA"} onChange={handleSubcategoryChange}/><label>DAHUA</label><br/>
                           <input type="radio" name="subCat" value="EZVIZ" checked={subcategory === "EZVIZ"} onChange={handleSubcategoryChange}/><label>EZVIZ</label><br/>
                           <input type="radio" name="subCat" value="HIKVISION" checked={subcategory === "HIKVISION"} onChange={handleSubcategoryChange}/><label>HIKVISION</label><br/>
-                          <input type="radio" name="subCat" value="Wisenet" checked={subcategory === "Wisenet"} onChange={handleSubcategoryChange}/><label>Wisenet</label>
+                          <input type="radio" name="subCat" value="Wisenet" checked={subcategory === "Wisenet"} onChange={handleSubcategoryChange}/><label>Wisenet</label><br/>
+                          <input type="radio" name="subCat" value="IMOU" checked={subcategory === "IMOU"} onChange={handleSubcategoryChange}/><label>IMOU</label><br/>
+                          <input type="radio" name="subCat" value="REOLINK" checked={subcategory === "Wisenet"} onChange={handleSubcategoryChange}/><label>REOLINK</label>
                         </div>
                       }
                       <input type="radio" name='category' value="Display Monitor" checked={category === "Display Monitor"} onChange={handleCategoryChange}/><label onClick={()=>{setActive6(!active6)}} style={{ cursor:'pointer' }}>Display Monitor +</label><br/>
@@ -304,26 +312,28 @@ export const Product = () =>{
                         <div className='contaierSubCategory' style={{ height:'90px' }}>
                           <input type="radio" name="subCat" value="Dahua LCD" checked={subcategory === "Dahua LCD"} onChange={handleSubcategoryChange}/><label>Dahua LCD</label><br/>
                           <input type="radio" name="subCat" value="Dahua Standing Monitor" checked={subcategory === "Dahua Standing Monitor"} onChange={handleSubcategoryChange}/><label>Dahua Standing Monitor</label><br/>
-                          <input type="radio" name="subCat" value="ViewSonic Monitor" checked={subcategory === "ViewSonic Monitor"} onChange={handleSubcategoryChange}/><label>ViewSonic Monitor</label>
+                          <input type="radio" name="subCat" value="ViewSonic Monitor" checked={subcategory === "ViewSonic Monitor"} onChange={handleSubcategoryChange}/><label>ViewSonic Monitor</label><br/>
+                          <input type="radio" name="subCat" value="Projector" checked={subcategory === "Projector"} onChange={handleSubcategoryChange}/><label>Projector</label><br/>
+                          <input type="radio" name="subCat" value="Smart Interactive Whiteboard" checked={subcategory === "Smart Interactive Whiteboard"} onChange={handleSubcategoryChange}/><label>Smart Interactive Whiteboard</label>
                         </div>
                       }
-                      <input type="radio" name='category' value="Access Control System" checked={category === "Draka Cable"} onChange={handleCategoryChange}/><label>Draka Cable</label><br/>
-                      <input type="radio" name='category' value="Access Control System" checked={category === "IP PBX System"} onChange={handleCategoryChange}/><label onClick={()=>{setActive7(!active7)}} style={{ cursor:'pointer' }}>IP PBX System +</label><br/>
+                      <input type="radio" name='category' value="Draka Cable" checked={category === "Draka Cable"} onChange={handleCategoryChange}/><label>Draka Cable</label><br/>
+                      <input type="radio" name='category' value="IP PBX System" checked={category === "IP PBX System"} onChange={handleCategoryChange}/><label onClick={()=>{setActive7(!active7)}} style={{ cursor:'pointer' }}>IP PBX System +</label><br/>
                       {active7 &&
                         <div className='contaierSubCategory' style={{ height:'90px' }}>
                           <input type="radio" name="subCat" value="Fanvil IP PBX Phone" checked={subcategory === "Fanvil IP PBX Phone"} onChange={handleSubcategoryChange}/><label>Fanvil IP PBX Phone</label>
                           <input type="radio" name="subCat" value="Zycoo IP Phone System" checked={subcategory === "Zycoo IP Phone System"} onChange={handleSubcategoryChange}/><label>Zycoo IP Phone System</label>
                         </div>
                       }
-                      <input type="radio" name='category' value="Access Control System" checked={category === "Metal Detector"} onChange={handleCategoryChange}/><label>Metal Detector</label><br/>
-                      <input type="radio" name='category' value="Access Control System" checked={category === "Networking"} onChange={handleCategoryChange}/><label onClick={()=>{setActive8(!active8)}} style={{ cursor:'pointer' }}>Networking +</label><br/>
+                      <input type="radio" name='category' value="Metal Detector" checked={category === "Metal Detector"} onChange={handleCategoryChange}/><label>Metal Detector</label><br/>
+                      <input type="radio" name='category' value="Networking" checked={category === "Networking"} onChange={handleCategoryChange}/><label onClick={()=>{setActive8(!active8)}} style={{ cursor:'pointer' }}>Networking +</label><br/>
                       {active8 &&
                         <div className='contaierSubCategory' style={{ height:'90px' }}>
                           <input type="radio" name="subCat" value="IP COM" checked={subcategory === "IP COM"} onChange={handleSubcategoryChange}/><label>IP COM</label><br/>
                           <input type="radio" name="subCat" value="Ruijie" checked={subcategory === "Ruijie"} onChange={handleSubcategoryChange}/><label>Ruijie</label>
                         </div>
                       }
-                      <input type="radio" name='category' value="Access Control System" checked={category === "Security Alarm System"} onChange={handleCategoryChange}/><label onClick={()=>{setActive9(!active9)}} style={{ cursor:'pointer' }}>Security Alarm System +</label><br/>
+                      <input type="radio" name='category' value="Security Alarm System" checked={category === "Security Alarm System"} onChange={handleCategoryChange}/><label onClick={()=>{setActive9(!active9)}} style={{ cursor:'pointer' }}>Security Alarm System +</label><br/>
                       {active9 &&
                         <div className='contaierSubCategory' style={{ height:'90px' }}>
                           <input type="radio" name="subCat" value="Auto Gate" checked={subcategory === "Auto Gate"} onChange={handleSubcategoryChange}/><label>Auto Gate</label><br/>
@@ -353,11 +363,10 @@ export const Product = () =>{
                       <input type="radio" name='category' value="Thermal Imaging Camera" checked={category === "Thermal Imaging Camera"} onChange={handleCategoryChange}/><label>Thermal Imaging Camera</label><br/>
                       <input type="radio" name='category' value="Video Intercom" checked={category === "Video Intercom"} onChange={handleCategoryChange}/><label>Video Intercom</label><br/>
                       <input type="radio" name='category' value="Digital Air BnB Door Lock System" checked={category === "Digital Air BnB Door Lock System"} onChange={handleCategoryChange}/><label>Digital Air BnB Door Lock &nbsp;&nbsp;&nbsp;&nbsp;System</label><br/>
-                      <input type="radio" name='category' value="fa" checked={category === "fa"} onChange={handleCategoryChange}/><label>fa</label><br/>
-                      <input type="radio" name='category' value="Uncategorized" checked={category === "Uncategorized"} onChange={handleCategoryChange}/><label>Uncategorized</label><br/>
                       <input type="radio" name='category' value="Uninterruptible Power Supply" checked={category === "Uninterruptible Power Supply"} onChange={handleCategoryChange}/><label>Uninterruptible Power Supply</label><br/>
                       <input type="radio" name='category' value="Voice Intercom" checked={category === "Voice Intercom"} onChange={handleCategoryChange}/><label>Voice Intercom</label><br/>
                       <input type="radio" name='category' value="Cable & Network Wire" checked={category === "Cable & Network Wire"} onChange={handleCategoryChange}/><label>Cable & Network Wire</label><br/>
+                      <input type="radio" name='category' value="Uncategorized" checked={category === "Uncategorized"} onChange={handleCategoryChange}/><label>Uncategorized</label><br/>
                     </div>  
                     </div> 
                   </div>
@@ -388,7 +397,8 @@ export const Product = () =>{
                       <input type="radio" name="brand" value="WBDP" checked={brand === "WBDP"} onChange={handleBrandChange}/><label>WBDP</label><br/>
                       <input type="radio" name="brand" value="Reolink" checked={brand === "Reolink"} onChange={handleBrandChange}/><label>Reolink</label><br/>
                       <input type="radio" name="brand" value="Hikvision" checked={brand === "Hikvision"} onChange={handleBrandChange}/><label>Hikvision</label><br/>
-                      <input type="radio" name="brand" value="ZKteco" checked={brand === "ZKteco"} onChange={handleBrandChange}/><label>ZKteco</label>
+                      <input type="radio" name="brand" value="ZKteco" checked={brand === "ZKteco"} onChange={handleBrandChange}/><label>ZKteco</label><br/>
+                      <input type="radio" name="brand" value="CyberPower" checked={brand === "CyberPower"} onChange={handleBrandChange}/><label>CyberPower</label>
                       </div>
                     </ul>
                   </div>
@@ -436,12 +446,14 @@ export const Product = () =>{
             <div className='mobile'>
               <div className='filterContainer'>
                   <h1 className='filterHOne'>Browse By</h1>
-                  <input className='filterInput' type="text" id="search-input"></input>
+                  <form onSubmit={handleSearchF}>
+                  <input className='filterInput' type="text" id="search-input" name='search'></input>
                   <div className='filterButtonSearchContainer'>
-                  <button className='filterSearchButton' onClick={handleSearch}>Search</button>
+                  <button className='filterSearchButton' type='submit'>Search</button>
                   </div>
+                  </form>
                   <div className='filterButtonClearContainer'>
-                  <button className='filterClearButton' onClick={() => {setCategory("");setSubcategory("");setType("");setBrand("");setSearch("");document.getElementById("search-input").value = "";fetchProducts();}}>Clear All</button>
+                  <button className='filterClearButton' onClick={() => {setCategory("");setSubcategory("");setType("");setBrand("");setSearch('');fetchProducts();}}>Clear All</button>
                   </div>
 
                   <div className='containerCategory'>
@@ -480,7 +492,8 @@ export const Product = () =>{
                           <input type="radio" name="subCat" value="Network Patch Panels" checked={subcategory === "Network Patch Panels"} onChange={handleSubcategoryChange}/><label>Network Patch Panels</label><br/>
                           <input type="radio" name="subCat" value="PoE Solution" checked={subcategory === "PoE Solution"} onChange={handleSubcategoryChange}/><label>PoE Solution</label><br/>
                           <input type="radio" name="subCat" value="Power Supply" checked={subcategory === "Power Supply"} onChange={handleSubcategoryChange}/><label>Power Supply</label><br/>
-                          <input type="radio" name="subCat" value="Surge Protector" checked={subcategory === "Surge Protector"} onChange={handleSubcategoryChange}/><label>Surge Protector</label>
+                          <input type="radio" name="subCat" value="Surge Protector" checked={subcategory === "Surge Protector"} onChange={handleSubcategoryChange}/><label>Surge Protector</label><br/>
+                          <input type="radio" name="subCat" value="Parking System Accessories" checked={subcategory === "Parking System Accessories"} onChange={handleSubcategoryChange}/><label>Parking System Accessories</label>
                         </div>
                       }
                       <input type="radio" name='category' value="Auto Door System" checked={category === "Auto Door System"} onChange={handleCategoryChange}/><label onClick={()=>{setActive3(!active3)}} style={{ cursor:'pointer' }}>Auto Door System +</label><br/>
@@ -506,7 +519,9 @@ export const Product = () =>{
                           <input type="radio" name="subCat" value="DAHUA" checked={subcategory === "DAHUA"} onChange={handleSubcategoryChange}/><label>DAHUA</label><br/>
                           <input type="radio" name="subCat" value="EZVIZ" checked={subcategory === "EZVIZ"} onChange={handleSubcategoryChange}/><label>EZVIZ</label><br/>
                           <input type="radio" name="subCat" value="HIKVISION" checked={subcategory === "HIKVISION"} onChange={handleSubcategoryChange}/><label>HIKVISION</label><br/>
-                          <input type="radio" name="subCat" value="Wisenet" checked={subcategory === "Wisenet"} onChange={handleSubcategoryChange}/><label>Wisenet</label>
+                          <input type="radio" name="subCat" value="Wisenet" checked={subcategory === "Wisenet"} onChange={handleSubcategoryChange}/><label>Wisenet</label><br/>
+                          <input type="radio" name="subCat" value="IMOU" checked={subcategory === "IMOU"} onChange={handleSubcategoryChange}/><label>IMOU</label><br/>
+                          <input type="radio" name="subCat" value="REOLINK" checked={subcategory === "Wisenet"} onChange={handleSubcategoryChange}/><label>REOLINK</label>
                         </div>
                       }
                       <input type="radio" name='category' value="Display Monitor" checked={category === "Display Monitor"} onChange={handleCategoryChange}/><label onClick={()=>{setActive6(!active6)}} style={{ cursor:'pointer' }}>Display Monitor +</label><br/>
@@ -514,26 +529,28 @@ export const Product = () =>{
                         <div className='contaierSubCategory' style={{ height:'90px' }}>
                           <input type="radio" name="subCat" value="Dahua LCD" checked={subcategory === "Dahua LCD"} onChange={handleSubcategoryChange}/><label>Dahua LCD</label><br/>
                           <input type="radio" name="subCat" value="Dahua Standing Monitor" checked={subcategory === "Dahua Standing Monitor"} onChange={handleSubcategoryChange}/><label>Dahua Standing Monitor</label><br/>
-                          <input type="radio" name="subCat" value="ViewSonic Monitor" checked={subcategory === "ViewSonic Monitor"} onChange={handleSubcategoryChange}/><label>ViewSonic Monitor</label>
+                          <input type="radio" name="subCat" value="ViewSonic Monitor" checked={subcategory === "ViewSonic Monitor"} onChange={handleSubcategoryChange}/><label>ViewSonic Monitor</label><br/>
+                          <input type="radio" name="subCat" value="Projector" checked={subcategory === "Projector"} onChange={handleSubcategoryChange}/><label>Projector</label><br/>
+                          <input type="radio" name="subCat" value="Smart Interactive Whiteboard" checked={subcategory === "Smart Interactive Whiteboard"} onChange={handleSubcategoryChange}/><label>Smart Interactive Whiteboard</label>
                         </div>
                       }
-                      <input type="radio" name='category' value="Access Control System" checked={category === "Draka Cable"} onChange={handleCategoryChange}/><label>Draka Cable</label><br/>
-                      <input type="radio" name='category' value="Access Control System" checked={category === "IP PBX System"} onChange={handleCategoryChange}/><label onClick={()=>{setActive7(!active7)}} style={{ cursor:'pointer' }}>IP PBX System +</label><br/>
+                      <input type="radio" name='category' value="Draka Cable" checked={category === "Draka Cable"} onChange={handleCategoryChange}/><label>Draka Cable</label><br/>
+                      <input type="radio" name='category' value="IP PBX System" checked={category === "IP PBX System"} onChange={handleCategoryChange}/><label onClick={()=>{setActive7(!active7)}} style={{ cursor:'pointer' }}>IP PBX System +</label><br/>
                       {active7 &&
                         <div className='contaierSubCategory' style={{ height:'90px' }}>
                           <input type="radio" name="subCat" value="Fanvil IP PBX Phone" checked={subcategory === "Fanvil IP PBX Phone"} onChange={handleSubcategoryChange}/><label>Fanvil IP PBX Phone</label><br/>
                           <input type="radio" name="subCat" value="Zycoo IP Phone System" checked={subcategory === "Zycoo IP Phone System"} onChange={handleSubcategoryChange}/><label>Zycoo IP Phone System</label>
                         </div>
                       }
-                      <input type="radio" name='category' value="Access Control System" checked={category === "Metal Detector"} onChange={handleCategoryChange}/><label>Metal Detector</label><br/>
-                      <input type="radio" name='category' value="Access Control System" checked={category === "Networking"} onChange={handleCategoryChange}/><label onClick={()=>{setActive8(!active8)}} style={{ cursor:'pointer' }}>Networking +</label><br/>
+                      <input type="radio" name='category' value="Metal Detector" checked={category === "Metal Detector"} onChange={handleCategoryChange}/><label>Metal Detector</label><br/>
+                      <input type="radio" name='category' value="Networking" checked={category === "Networking"} onChange={handleCategoryChange}/><label onClick={()=>{setActive8(!active8)}} style={{ cursor:'pointer' }}>Networking +</label><br/>
                       {active8 &&
                         <div className='contaierSubCategory' style={{ height:'90px' }}>
                           <input type="radio" name="subCat" value="IP COM" checked={subcategory === "IP COM"} onChange={handleSubcategoryChange}/><label>IP COM</label><br/>
                           <input type="radio" name="subCat" value="Ruijie" checked={subcategory === "Ruijie"} onChange={handleSubcategoryChange}/><label>Ruijie</label>
                         </div>
                       }
-                      <input type="radio" name='category' value="Access Control System" checked={category === "Security Alarm System"} onChange={handleCategoryChange}/><label onClick={()=>{setActive9(!active9)}} style={{ cursor:'pointer' }}>Security Alarm System +</label><br/>
+                      <input type="radio" name='category' value="Security Alarm System" checked={category === "Security Alarm System"} onChange={handleCategoryChange}/><label onClick={()=>{setActive9(!active9)}} style={{ cursor:'pointer' }}>Security Alarm System +</label><br/>
                       {active9 &&
                         <div className='contaierSubCategory' style={{ height:'90px' }}>
                           <input type="radio" name="subCat" value="Auto Gate" checked={subcategory === "Auto Gate"} onChange={handleSubcategoryChange}/><label>Auto Gate</label><br/>
@@ -561,7 +578,6 @@ export const Product = () =>{
                       <input type="radio" name='category' value="Thermal Imaging Camera" checked={category === "Thermal Imaging Camera"} onChange={handleCategoryChange}/><label>Thermal Imaging Camera</label><br/>
                       <input type="radio" name='category' value="Video Intercom" checked={category === "Video Intercom"} onChange={handleCategoryChange}/><label>Video Intercom</label><br/>
                       <input type="radio" name='category' value="Digital Air BnB Door Lock System" checked={category === "Digital Air BnB Door Lock System"} onChange={handleCategoryChange}/><label>Digital Air BnB Door Lock System</label><br/>
-                      <input type="radio" name='category' value="fa" checked={category === "fa"} onChange={handleCategoryChange}/><label>fa</label><br/>
                       <input type="radio" name='category' value="Uncategorized" checked={category === "Uncategorized"} onChange={handleCategoryChange}/><label>Uncategorized</label><br/>
                       <input type="radio" name='category' value="Uninterruptible Power Supply" checked={category === "Uninterruptible Power Supply"} onChange={handleCategoryChange}/><label>Uninterruptible Power Supply</label><br/>
                       <input type="radio" name='category' value="Voice Intercom" checked={category === "Voice Intercom"} onChange={handleCategoryChange}/><label>Voice Intercom</label><br/>
@@ -596,7 +612,8 @@ export const Product = () =>{
                       <input type="radio" name="brand" value="WBDP" checked={brand === "WBDP"} onChange={handleBrandChange}/><label>WBDP</label><br/>
                       <input type="radio" name="brand" value="Reolink" checked={brand === "Reolink"} onChange={handleBrandChange}/><label>Reolink</label><br/>
                       <input type="radio" name="brand" value="Hikvision" checked={brand === "Hikvision"} onChange={handleBrandChange}/><label>Hikvision</label><br/>
-                      <input type="radio" name="brand" value="ZKteco" checked={brand === "ZKteco"} onChange={handleBrandChange}/><label>ZKteco</label>
+                      <input type="radio" name="brand" value="ZKteco" checked={brand === "ZKteco"} onChange={handleBrandChange}/><label>ZKteco</label><br/>
+                      <input type="radio" name="brand" value="CyberPower" checked={brand === "CyberPower"} onChange={handleBrandChange}/><label>CyberPower</label>
                     </ul>
                     }
                   </div>

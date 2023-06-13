@@ -1,70 +1,135 @@
-import React,{useState} from 'react'
-import Navbar from '../../Components/Navigation/Navbar'
-import Footer from '../../Components/Footer/Footer'
-import NewOne from '../../Images/BlogNewOne.svg'
-import NewTwo from '../../Images/BlogNewTwo.svg'
-import NewThree from '../../Images/BlogNewThree.svg'
+import React,{useState,useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import '../Blog/Blog.css'
 import {motion} from "framer-motion"
-import moment from 'moment'
+import axios from 'axios'
 
 export const Blog = () => {
-    const data = [
-        {
-            id:'1',
-            image:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png',
-            title:'The Perks Of Using Smart Door Lock',
-            postBy:'Pang',
-            created_at:'3/20/2023',
-            description:'Our goal is to give clients the highest-quality goods and services possible while upholding their expectations. We are enthusiastic to provide safety and prevention by providing the most cutting-edge security products, as well as to continually increase client satisfaction with our array of capabilities to forge lasting business relationships.'
-        },
-        {
-            id:'2',
-            image:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png',
-            title:'The Perks Of Using Smart Door Lock',
-            postBy:'Pang',
-            created_at:'3/20/2023',
-            description:'qwdwdwdwdwd qwdwdwdwdwd qwdwdwdwdwd qwdwdwdwdwd qwdwdwdwdwd qwdwdwdwdwd qwdwdwdwdwd'
-        },
-        {
-            id:'3',
-            image:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png',
-            title:'The Perks Of Using Smart Door Lock',
-            postBy:'Pang',
-            created_at:'3/20/2023',
-            description:'qwdwdwdwdwd qwdwdwdwdwd qwdwdwdwdwd qwdwdwdwdwd qwdwdwdwdwd qwdwdwdwdwd qwdwdwdwdwd'
-        },
-        {
-            id:'4',
-            image:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png',
-            title:'The Perks Of Using Smart Door Lock',
-            postBy:'Pang',
-            created_at:'3/20/2023',
-            description:'qwdwdwdwdwd qwdwdwdwdwd qwdwdwdwdwd qwdwdwdwdwd qwdwdwdwdwd qwdwdwdwdwd qwdwdwdwdwd'
-        },
-        {
-            id:'5',
-            image:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png',
-            title:'The Perks Of Using Smart Door Lock',
-            postBy:'Pang',
-            created_at:'3/20/2023',
-            description:'Our goal is to give clients the highest-quality goods and services possible while upholding their expectations. We are enthusiastic to provide safety and prevention by providing the most cutting-edge security products, as well as to continually increase client satisfaction with our array of capabilities to forge lasting business relationships.'
-        }
-        ,
-        {
-            id:'6',
-            image:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png',
-            title:'The Perks Of Using Smart Door Lock',
-            postBy:'Pang',
-            created_at:'3/20/2023',
-            description:'Our goal is to give clients the highest-quality goods and services possible while upholding their expectations. We are enthusiastic to provide safety and prevention by providing the most cutting-edge security products, as well as to continually increase client satisfaction with our array of capabilities to forge lasting business relationships.'
-        }
-    ]
+    const axiosInstance = axios.create({baseURL:process.env.REACT_APP_API_URL,});
+  
+    const [data,setData] = useState([])
 
     const scrollToTop = () => {
         window.scrollTo(0, 0)
     }
+
+    const [totalPages, setTotalPages] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [isLoading, setisLoading] = useState(false);
+
+  
+    useEffect(() => {
+      fetchProducts();
+    }, [currentPage]);
+  
+    const fetchProducts = async () => {
+      setisLoading(true)
+      try {
+        const response = await axiosInstance.get("/product/getBlogs", {
+          params: {
+            limit:12,
+            page: currentPage,
+          },
+        });
+        setData(response.data);
+        setisLoading(false)
+      } catch (error) {
+        console.log(error);
+        setisLoading(false)
+      }
+    };
+  
+    const handlePageChange = (pageNumber) => {
+      setCurrentPage(pageNumber);
+      setTimeout(() => {
+        window.scrollTo(0, 900);
+      }, 1500);
+    };
+
+  
+    useEffect(() => {
+      fetchTotalPages();
+    }, []);
+  
+    const fetchTotalPages = async () => {
+      try {
+        const response = await axiosInstance.get("/product/getBlogsTotalPages", {
+          params: {
+            limit:12,
+          },
+        }); 
+        setTotalPages(response.data.totalPages);
+        setisLoading(true)
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  
+    const renderPageNumbers = () => {
+      const pageNumbers = [];
+      let startPage = 1;
+      let endPage = Math.min(totalPages, 10);
+    
+      if (currentPage > 6) {
+        startPage = currentPage - 5;
+        endPage = Math.min(currentPage + 4, totalPages);
+      }
+    
+      if (endPage - startPage < 9 && endPage < totalPages) {
+        endPage = Math.min(startPage + 9, totalPages);
+        if (endPage - startPage < 9) {
+          startPage = Math.max(endPage - 9, 1);
+        }
+      }
+    
+      for (let i = startPage; i <= endPage; i++) {
+        pageNumbers.push(
+          <li
+            key={i}
+            className={currentPage === i ? "active" : ""}
+            onClick={() => {handlePageChange(i)  }}
+          >
+            {i}
+          </li>
+        );
+      }
+    
+      if (startPage > 1) {
+        pageNumbers.unshift(
+          <li key="ellipsis-start" className="ellipsis">
+            ...
+          </li>
+        );
+        pageNumbers.unshift(
+          <li
+            key={1}
+            className={currentPage === 1 ? "active" : ""}
+            onClick={() => {handlePageChange(1) }}
+          >
+            1
+          </li>
+        );
+      }
+    
+      if (endPage < totalPages) {
+        pageNumbers.push(
+          <li key="ellipsis-end" className="ellipsis">
+            ...
+          </li>
+        );
+        pageNumbers.push(
+          <li
+            key={totalPages}
+            className={currentPage === totalPages ? "active" : ""}
+            onClick={() => {handlePageChange(totalPages)  }}
+          >
+            {totalPages}
+          </li>
+        );
+      }
+    
+      return pageNumbers;
+    };
 
   
 
@@ -81,13 +146,16 @@ export const Blog = () => {
     })
 
     return(
-        <motion.div className='blog' intial={{ width:0}} animate={{ width:'100%' }} exit={{ x:window.innerWidth,transition:{duration:0.13} }}>
+        <motion.div className='blog' >
             <div className='web'>
                 <div className='containerOne'>
                     <h1 className='containerOneHeader'>What’s New?</h1>
                     <div className='newsContainer'>
-                        {displayNews}
+                            {displayNews } 
                     </div>
+                    <div className="pagination">
+                        {renderPageNumbers()}
+                    </div> 
                 </div>
             </div>
 
@@ -96,8 +164,11 @@ export const Blog = () => {
                 <div className='containerOne'>
                     <h1 className='containerOneHeader'>What’s New?</h1>
                         <div className='newsContainer'>
-                            {displayNews}
+                            {displayNews } 
                         </div>
+                        <div className="pagination">
+                            {renderPageNumbers()}
+                        </div> 
                 </div>
             </div>
         </motion.div>

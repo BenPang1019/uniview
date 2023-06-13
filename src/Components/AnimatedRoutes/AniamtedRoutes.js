@@ -10,6 +10,9 @@ import { Support } from "../../Pages/Support/Support";
 
 import {AnimatePresence} from "framer-motion";
 import { BlogDetails } from '../../Pages/BlogDetails/BlogDetails';
+import { Terms } from '../../Pages/Terms/Terms';
+import { Privacy } from '../../Pages/Privacy/Privacy';
+import { Warranty } from '../../Pages/Warranty/Warranty';
 
 function AniamtedRoutes() {
     const location = useLocation();
@@ -23,6 +26,9 @@ function AniamtedRoutes() {
         <Route path="/blog"  element={<Blog/>} />
         <Route path="/blogDetails"  element={<BlogDetails/>} />
         <Route path="/support"  element={<Support/>} />
+        <Route path="/termsofuse"  element={<Terms/>} />
+        <Route path="/privacypolicy"  element={<Privacy/>} />
+        <Route path="/warranty"  element={<Warranty/>} />
       </Routes>
     </AnimatePresence>
   )

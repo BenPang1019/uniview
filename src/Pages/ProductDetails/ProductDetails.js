@@ -1,38 +1,56 @@
 import React, { useState,useEffect } from 'react'
 import {useLocation,useParams} from 'react-router-dom';
 import axios from 'axios';
-import Navbar from '../../Components/Navigation/Navbar'
-import Footer from '../../Components/Footer/Footer'
 import './ProductDetails.css'
-import PopularOne from '../../Images/PopularOne.svg'
 import Stars from '../../Images/Stars.svg'
 
 import { Helmet } from 'react-helmet';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Mousewheel } from "swiper";
+import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import {motion} from "framer-motion"
 
 export const ProductDetails = () => {
-  const [category,setCategory] = useState();
+  const axiosInstance = axios.create({
+    baseURL:process.env.REACT_APP_API_URL,
+  });
+
   const [active,setActive] = useState('first');
   const location = useLocation();
+
+  const [productdata, setproductdata] = useState([])
+  const [description, setDescription] = useState([])
+  const productId=location.state.product.id
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axiosInstance.get(`/product/getProduct/${productId}`);
+        setproductdata(res.data);
+        const formattedData = res.data.productDescription.split('\\n').map((line, index) => (
+          <React.Fragment key={index}>
+            {line}
+            <br />
+          </React.Fragment>
+        ));
+        setDescription(formattedData);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, []);
 
   function NewlineText(props) {
     const text = props.text;
     return text.split('\n').map(str => <p className='specP'>-{str.replaceAll('\\n', '')}</p>);
   }
 
-  function NewlineTextTwo(props) {
-    const text = props.text;
-    return text.split('\n').map(str => <p className='specP'>{str.replaceAll('\\n', '')}</p>);
-  }
-
-
+  
   return (
-    <motion.div className='productDetails' intial={{ width:0}} animate={{ width:'100%' }} exit={{ x:window.innerWidth,transition:{duration:0.2} }}>
+    <motion.div className='productDetails' intial={{ width:1}} animate={{ width:'100%' }} exit={{ x:window.innerWidth,transition:{duration:0.13} }}>
     <Helmet>
       <meta name="author" content="https://wdatechnology.com" />
       <title>Our Product | Uniview Solution Sdn Bhd</title>
@@ -41,8 +59,9 @@ export const ProductDetails = () => {
       <meta property="og:title" content="Our Product | Uniview Solution Sdn Bhd"/>
       <meta property="og:description" content="We committed to provide high quality and excellent service in security and surveillance field. " /> 
     </Helmet>
+    <div className='web'>
         <div className='container'>
-        {location.state.product.productImageTwo || location.state.product.productImageThree || location.state.product.productImageFour?
+        {productdata.productImageTwo || productdata.productImageThree || productdata.productImageFour?
         <div className='containerOne inline' style={{ verticalAlign:'top' }}>
             <Swiper
                 navigation={true}
@@ -55,15 +74,15 @@ export const ProductDetails = () => {
             >
             <SwiperSlide>
             <div className='containerOneImgOne'>
-                <img src={location.state.product.productImageOne?location.state.product.productImageOne:null} className="image"/>
+                <img src={productdata.productImageOne?productdata.productImageOne:null} className="image"/>
                 <img src={null} className="image"/>
 
             </div>
             </SwiperSlide>
-            {location.state.product.productImageTwo?
+            {productdata.productImageTwo?
             <SwiperSlide>
             <div className='containerOneImgOne'>
-                <img src={location.state.product.productImageTwo?location.state.product.productImageTwo:null} className="image"/>
+                <img src={productdata.productImageTwo?productdata.productImageTwo:null} className="image"/>
                 <img src={null} className="image"/>
 
             </div>
@@ -71,20 +90,20 @@ export const ProductDetails = () => {
             :
             null
             }
-            {location.state.product.productImageThree?
+            {productdata.productImageThree?
             <SwiperSlide>
             <div className='containerOneImgOne'>
-                <img src={location.state.product.productImageThree?location.state.product.productImageThree:null} className="image"/>
+                <img src={productdata.productImageThree?productdata.productImageThree:null} className="image"/>
                 <img src={null} className="image"/>
             </div>
             </SwiperSlide>
             :
             null
             }
-            {location.state.product.productImageFour?
+            {productdata.productImageFour?
             <SwiperSlide>
             <div className='containerOneImgOne'>
-                <img src={location.state.product.productImageFour?location.state.product.productImageFour:null} className="image"/>
+                <img src={productdata.productImageFour?productdata.productImageFour:null} className="image"/>
                 <img src={null} className="image"/>
             </div>
             </SwiperSlide>
@@ -93,43 +112,43 @@ export const ProductDetails = () => {
             }
             </Swiper>
             <div className='imageContainer'>
-            {location.state.product.productImageTwo?
+            {productdata.productImageTwo?
             <div className='containerOneImgTwo'>
-              <img src={location.state.product.productImageTwo?location.state.product.productImageTwo:null} className="image"/>
+              <img src={productdata.productImageTwo?productdata.productImageTwo:null} className="image"/>
             </div>
             :
             <div className='containerOneImgTwo' style={{ display:'none' }}>
-              <img src={location.state.product.productImageTwo?location.state.product.productImageTwo:null} className="image" style={{ display:'none' }}/>
+              <img src={productdata.productImageTwo?productdata.productImageTwo:null} className="image" style={{ display:'none' }}/>
             </div>
             }
-            {location.state.product.productImageThree?
+            {productdata.productImageThree?
             <div className='containerOneImgThree'>
-              <img src={location.state.product.productImageThree?location.state.product.productImageThree:null} className="image"/>
+              <img src={productdata.productImageThree?productdata.productImageThree:null} className="image"/>
             </div>
             :
             <div className='containerOneImgThree' style={{ display:'none' }}>
-              <img src={location.state.product.productImageThree?location.state.product.productImageThree:null} className="image" style={{ display:'none' }}/>
+              <img src={productdata.productImageThree?productdata.productImageThree:null} className="image" style={{ display:'none' }}/>
             </div>
             }
-            {location.state.product.productImageFour?
+            {productdata.productImageFour?
             <div className='containerOneImgFour'>
-              <img src={location.state.product.productImageFour?location.state.product.productImageFour:null} className="image"/>
+              <img src={productdata.productImageFour?productdata.productImageFour:null} className="image"/>
             </div>
             :
             <div className='containerOneImgFour' style={{ display:'none' }}>
-              <img src={location.state.product.productImageFour?location.state.product.productImageFour:null} className="image" style={{ display:'none' }}/>
+              <img src={productdata.productImageFour?productdata.productImageFour:null} className="image" style={{ display:'none' }}/>
             </div>
             }
             </div>
-            {location.state.product.productImageTwo && location.state.product.productImageThree && location.state.product.productImageFour?
+            {productdata.productImageTwo && productdata.productImageThree && productdata.productImageFour?
             <div className='containerOneCategory'>
-                <h1>#{location.state.product.category}</h1>
-                <h1>#{location.state.product.subCategory}</h1>
+                <h1>#{productdata.category}</h1>
+                <h1>#{productdata.subCategory}</h1>
             </div>
             :
             <div className='containerOneCategory'>
-                <h1>#{location.state.product.category}</h1>
-                <h1>#{location.state.product.subCategory}</h1>
+                <h1>#{productdata.category}</h1>
+                <h1>#{productdata.subCategory}</h1>
             </div>
             }
         </div>
@@ -146,35 +165,35 @@ export const ProductDetails = () => {
             >
             <SwiperSlide>
             <div className='containerOneImgOne'>
-                <img src={location.state.product.productImageOne?location.state.product.productImageOne:null} className="image"/>
+                <img src={productdata.productImageOne?productdata.productImageOne:null} className="image"/>
                 <img src={null} className="image"/>
 
             </div>
             </SwiperSlide>
-            {location.state.product.productImageTwo?
+            {productdata.productImageTwo?
             <SwiperSlide>
             <div className='containerOneImgOne'>
-                <img src={location.state.product.productImageTwo?location.state.product.productImageTwo:null} className="image"/>
+                <img src={productdata.productImageTwo?productdata.productImageTwo:null} className="image"/>
                 <img src={null} className="image"/>
 
             </div>
             </SwiperSlide>
             :
             null}
-            {location.state.product.productImageThree?
+            {productdata.productImageThree?
             <SwiperSlide>
             <div className='containerOneImgOne'>
-                <img src={location.state.product.productImageThree?location.state.product.productImageThree:null} className="image"/>
+                <img src={productdata.productImageThree?productdata.productImageThree:null} className="image"/>
                 <img src={null} className="image"/>
             </div>
             </SwiperSlide>
             :
             null
             }
-            {location.state.product.productImageFour?
+            {productdata.productImageFour?
             <SwiperSlide>
             <div className='containerOneImgOne'>
-                <img src={location.state.product.productImageFour?location.state.product.productImageFour:null} className="image"/>
+                <img src={productdata.productImageFour?productdata.productImageFour:null} className="image"/>
                 <img src={null} className="image"/>
             </div>
             </SwiperSlide>
@@ -183,57 +202,59 @@ export const ProductDetails = () => {
             }
             </Swiper>
             <div className='imageContainer'>
-            {location.state.product.productImageTwo?
+            {productdata.productImageTwo?
             <div className='containerOneImgTwo'>
-              <img src={location.state.product.productImageTwo?location.state.product.productImageTwo:null} className="image"/>
+              <img src={productdata.productImageTwo?productdata.productImageTwo:null} className="image"/>
             </div>
             :
             <div className='containerOneImgTwo' style={{ display:'none' }}>
-              <img src={location.state.product.productImageTwo?location.state.product.productImageTwo:null} className="image" style={{ display:'none' }}/>
+              <img src={productdata.productImageTwo?productdata.productImageTwo:null} className="image" style={{ display:'none' }}/>
             </div>
             }
-            {location.state.product.productImageThree?
+            {productdata.productImageThree?
             <div className='containerOneImgThree'>
-              <img src={location.state.product.productImageThree?location.state.product.productImageThree:null} className="image"/>
+              <img src={productdata.productImageThree?productdata.productImageThree:null} className="image"/>
             </div>
             :
             <div className='containerOneImgThree' style={{ display:'none' }}>
-              <img src={location.state.product.productImageThree?location.state.product.productImageThree:null} className="image" style={{ display:'none' }}/>
+              <img src={productdata.productImageThree?productdata.productImageThree:null} className="image" style={{ display:'none' }}/>
             </div>
             }
-            {location.state.product.productImageFour?
+            {productdata.productImageFour?
             <div className='containerOneImgFour'>
-              <img src={location.state.product.productImageFour?location.state.product.productImageFour:null} className="image"/>
+              <img src={productdata.productImageFour?productdata.productImageFour:null} className="image"/>
             </div>
             :
             <div className='containerOneImgFour' style={{ display:'none' }}>
-              <img src={location.state.product.productImageFour?location.state.product.productImageFour:null} className="image" style={{ display:'none' }}/>
+              <img src={productdata.productImageFour?productdata.productImageFour:null} className="image" style={{ display:'none' }}/>
             </div>
             }
             </div>
-            {location.state.product.productImageTwo && location.state.product.productImageThree && location.state.product.productImageFour?
+            {productdata.productImageTwo && productdata.productImageThree && productdata.productImageFour?
             <div className='containerOneCategory'>
-                <h1>#{location.state.product.category}</h1>
-                <h1>#{location.state.product.subCategory}</h1>
+                <h1>#{productdata.category}</h1>
+                <h1>#{productdata.subCategory}</h1>
             </div>
             :
             <div className='containerOneCategory'>
-                <h1>#{location.state.product.category}</h1>
-                <h1>#{location.state.product.subCategory}</h1>
+                <h1>#{productdata.category}</h1>
+                <h1>#{productdata.subCategory}</h1>
             </div>
             }
         </div>
         }
 
         <div className='containerProductDetails inline'>
-            <h1 className='containerProductDetailsHOne'>{location.state.product.productName} </h1>
+            <h1 className='containerProductDetailsHOne'>{productdata.productName} </h1>
             <img src={Stars} className="image"/>
             <h1 className='containerProductDetailsHTwo'> </h1>
             {active === "first" &&
             <div>
               <h2 className='containerProductDetailsHThree inline' style={{ textDecoration:"underline",textUnderlineOffset:'10px' }} >Description</h2>
               <h2 className='containerProductDetailsHFour inline' onClick={()=>setActive("two")}>Spec</h2>
-              <p className='containerProductDetailsPOne'><NewlineTextTwo text={location.state.product.productDescription} /></p>
+              <p className='containerProductDetailsPOne' style={{ overflow:"hidden",overflowY:"scroll" }} >
+                {description}
+              </p>
             </div>
             }
             {active === "two" &&
@@ -241,15 +262,238 @@ export const ProductDetails = () => {
               <h2 className='containerProductDetailsHThree inline'  onClick={()=>setActive("first")}>Description</h2>
               <h2 className='containerProductDetailsHFour inline' style={{ textDecoration:"underline",textUnderlineOffset:'10px' }} >Spec</h2>
               <p className='containerProductDetailsPOne' style={{ overflow:"hidden",overflowY:"scroll" }} >
-                <NewlineText text={location.state.product.productSpec} />
+                <NewlineText text={productdata.productSpec} />
               </p>
             </div>
             }
+            {productdata.productCatalogue?
             <div className='button'>
-              <a className='buttonCatalogue' href={location.state.product.productCatalogue} download>Product Catalogue</a>
+              <a className='buttonCatalogue' href={productdata.productCatalogue} download>Product Catalogue</a>
             </div>
+            :
+            null
+            }
         </div>
         </div>
+      </div>
+
+      <div className='mobile'>
+        <div className='container'>
+        {productdata.productImageTwo || productdata.productImageThree || productdata.productImageFour?
+        <div className='containerOne inline' style={{ verticalAlign:'top' }}>
+            <Swiper
+                navigation={true}
+                pagination={true}
+                loop={true}
+                slidesPerView={1}
+                slidesPerGroup={1}
+                allowTouchMove={false}
+                modules={[Navigation]}
+            >
+            <SwiperSlide>
+            <div className='containerOneImgOne'>
+                <img src={productdata.productImageOne?productdata.productImageOne:null} className="image"/>
+                <img src={null} className="image"/>
+
+            </div>
+            </SwiperSlide>
+            {productdata.productImageTwo?
+            <SwiperSlide>
+            <div className='containerOneImgOne'>
+                <img src={productdata.productImageTwo?productdata.productImageTwo:null} className="image"/>
+                <img src={null} className="image"/>
+
+            </div>
+            </SwiperSlide>
+            :
+            null
+            }
+            {productdata.productImageThree?
+            <SwiperSlide>
+            <div className='containerOneImgOne'>
+                <img src={productdata.productImageThree?productdata.productImageThree:null} className="image"/>
+                <img src={null} className="image"/>
+            </div>
+            </SwiperSlide>
+            :
+            null
+            }
+            {productdata.productImageFour?
+            <SwiperSlide>
+            <div className='containerOneImgOne'>
+                <img src={productdata.productImageFour?productdata.productImageFour:null} className="image"/>
+                <img src={null} className="image"/>
+            </div>
+            </SwiperSlide>
+            :
+            null
+            }
+            </Swiper>
+            <div className='imageContainer'>
+            {productdata.productImageTwo?
+            <div className='containerOneImgTwo'>
+              <img src={productdata.productImageTwo?productdata.productImageTwo:null} className="image"/>
+            </div>
+            :
+            <div className='containerOneImgTwo' style={{ display:'none' }}>
+              <img src={productdata.productImageTwo?productdata.productImageTwo:null} className="image" style={{ display:'none' }}/>
+            </div>
+            }
+            {productdata.productImageThree?
+            <div className='containerOneImgThree'>
+              <img src={productdata.productImageThree?productdata.productImageThree:null} className="image"/>
+            </div>
+            :
+            <div className='containerOneImgThree' style={{ display:'none' }}>
+              <img src={productdata.productImageThree?productdata.productImageThree:null} className="image" style={{ display:'none' }}/>
+            </div>
+            }
+            {productdata.productImageFour?
+            <div className='containerOneImgFour'>
+              <img src={productdata.productImageFour?productdata.productImageFour:null} className="image"/>
+            </div>
+            :
+            <div className='containerOneImgFour' style={{ display:'none' }}>
+              <img src={productdata.productImageFour?productdata.productImageFour:null} className="image" style={{ display:'none' }}/>
+            </div>
+            }
+            </div>
+            {productdata.productImageTwo && productdata.productImageThree && productdata.productImageFour?
+            <div className='containerOneCategory'>
+                <h1>#{productdata.category}</h1>
+                <h1>#{productdata.subCategory}</h1>
+            </div>
+            :
+            <div className='containerOneCategory'>
+                <h1>#{productdata.category}</h1>
+                <h1>#{productdata.subCategory}</h1>
+            </div>
+            }
+        </div>
+        :
+        <div className='containerOne inline' style={{ verticalAlign:'top' }}>
+            <Swiper
+                navigation={true}
+                pagination={true}
+                loop={true}
+                slidesPerView={1}
+                slidesPerGroup={1}
+                allowTouchMove={false}
+                modules={[Navigation]}
+            >
+            <SwiperSlide>
+            <div className='containerOneImgOne'>
+                <img src={productdata.productImageOne?productdata.productImageOne:null} className="image"/>
+                <img src={null} className="image"/>
+
+            </div>
+            </SwiperSlide>
+            {productdata.productImageTwo?
+            <SwiperSlide>
+            <div className='containerOneImgOne'>
+                <img src={productdata.productImageTwo?productdata.productImageTwo:null} className="image"/>
+                <img src={null} className="image"/>
+
+            </div>
+            </SwiperSlide>
+            :
+            null}
+            {productdata.productImageThree?
+            <SwiperSlide>
+            <div className='containerOneImgOne'>
+                <img src={productdata.productImageThree?productdata.productImageThree:null} className="image"/>
+                <img src={null} className="image"/>
+            </div>
+            </SwiperSlide>
+            :
+            null
+            }
+            {productdata.productImageFour?
+            <SwiperSlide>
+            <div className='containerOneImgOne'>
+                <img src={productdata.productImageFour?productdata.productImageFour:null} className="image"/>
+                <img src={null} className="image"/>
+            </div>
+            </SwiperSlide>
+            :
+            null
+            }
+            </Swiper>
+            <div className='imageContainer'>
+            {productdata.productImageTwo?
+            <div className='containerOneImgTwo'>
+              <img src={productdata.productImageTwo?productdata.productImageTwo:null} className="image"/>
+            </div>
+            :
+            <div className='containerOneImgTwo' style={{ display:'none' }}>
+              <img src={productdata.productImageTwo?productdata.productImageTwo:null} className="image" style={{ display:'none' }}/>
+            </div>
+            }
+            {productdata.productImageThree?
+            <div className='containerOneImgThree'>
+              <img src={productdata.productImageThree?productdata.productImageThree:null} className="image"/>
+            </div>
+            :
+            <div className='containerOneImgThree' style={{ display:'none' }}>
+              <img src={productdata.productImageThree?productdata.productImageThree:null} className="image" style={{ display:'none' }}/>
+            </div>
+            }
+            {productdata.productImageFour?
+            <div className='containerOneImgFour'>
+              <img src={productdata.productImageFour?productdata.productImageFour:null} className="image"/>
+            </div>
+            :
+            <div className='containerOneImgFour' style={{ display:'none' }}>
+              <img src={productdata.productImageFour?productdata.productImageFour:null} className="image" style={{ display:'none' }}/>
+            </div>
+            }
+            </div>
+            {productdata.productImageTwo && productdata.productImageThree && productdata.productImageFour?
+            <div className='containerOneCategory'>
+                <h1>#{productdata.category}</h1>
+                <h1>#{productdata.subCategory}</h1>
+            </div>
+            :
+            <div className='containerOneCategory'>
+                <h1>#{productdata.category}</h1>
+                <h1>#{productdata.subCategory}</h1>
+            </div>
+            }
+        </div>
+        }
+
+        <div className='containerProductDetails inline'>
+            <h1 className='containerProductDetailsHOne'>{productdata.productName} </h1>
+            <img src={Stars} className="image"/>
+            <h1 className='containerProductDetailsHTwo'> </h1>
+            {active === "first" &&
+            <div>
+              <h2 className='containerProductDetailsHThree inline' style={{ textDecoration:"underline",textUnderlineOffset:'10px' }} >Description</h2>
+              <h2 className='containerProductDetailsHFour inline' onClick={()=>setActive("two")}>Spec</h2>
+              <p className='containerProductDetailsPOne' style={{ overflow:"hidden",overflowY:"scroll" }} >
+                {description}
+              </p>
+            </div>
+            }
+            {active === "two" &&
+            <div>
+              <h2 className='containerProductDetailsHThree inline'  onClick={()=>setActive("first")}>Description</h2>
+              <h2 className='containerProductDetailsHFour inline' style={{ textDecoration:"underline",textUnderlineOffset:'10px' }} >Spec</h2>
+              <p className='containerProductDetailsPOne' style={{ overflow:"hidden",overflowY:"scroll" }} >
+                <NewlineText text={productdata.productSpec} />
+              </p>
+            </div>
+            }
+            {productdata.productCatalogue?
+            <div className='button'>
+              <a className='buttonCatalogue' href={productdata.productCatalogue} download>Product Catalogue</a>
+            </div>
+            :
+            null
+            }
+        </div>
+        </div>
+      </div>
     </motion.div>
   )
 }

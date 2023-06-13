@@ -109,7 +109,7 @@
 
 .product .web .containerCategory{
     text-align: left;
-    width: 700px;
+    width: 670px;
     height: 370px;
     font-family: 'Urbanist';
     font-style: normal;
@@ -139,16 +139,16 @@
 
 .product .web ::-webkit-scrollbar-track {
     background: rgba(217, 217, 217, 0.5); 
-    border-radius: 10px
+    border-radius: 10px;
 }
 
 .product .web ::-webkit-scrollbar-thumb {
-    background: rgba(217, 217, 217, 0.5); 
+    background: black; 
     border-radius: 10px
 }
 
 .product .web ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: white;
 }
 
 .product .web .containerCategoryH{
@@ -377,8 +377,7 @@
 
 .product .mobile .filterButtonSearchContainer{
     margin-top: 1rem;
-    display: inline-block;
-    margin-right: 1rem;
+    margin-right: 6rem;
 }
 
 .product .mobile .filterSearchButton{
@@ -407,7 +406,8 @@
 }
 
 .product .mobile .filterButtonClearContainer{
-    display: inline-block;
+    margin-top: -3.25rem;
+    margin-left: 6rem;
 }
 
 .product .mobile .filterClearButton{
@@ -452,7 +452,7 @@
     font-family: 'Urbanist';
     font-style: normal;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 29px;
     color: #205696;
     margin-top: 2rem;
@@ -484,7 +484,7 @@
     font-family: 'Urbanist';
     font-style: normal;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 29px;
     color: #205696;
 }
@@ -512,7 +512,7 @@
     font-family: 'Urbanist';
     font-style: normal;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 29px;
     color: #205696;
 }
@@ -639,8 +639,7 @@
 
 .product .mobile .filterButtonSearchContainer{
     margin-top: 1rem;
-    display: inline-block;
-    margin-right: 1rem;
+    margin-right: 6rem;
 }
 
 .product .mobile .filterSearchButton{
@@ -669,7 +668,8 @@
 }
 
 .product .mobile .filterButtonClearContainer{
-    display: inline-block;
+    margin-top: -3.25rem;
+    margin-left: 6rem;
 }
 
 .product .mobile .filterClearButton{
@@ -858,7 +858,7 @@
 }
 
 /* Small Screen */
-@media (min-width: 769px) and (max-width: 1024px)  {
+@media (min-width: 769px) and (max-width: 1340px)  {
 .product{
     overflow: hidden;
     text-align: center;
@@ -901,8 +901,7 @@
 
 .product .mobile .filterButtonSearchContainer{
     margin-top: 1rem;
-    display: inline-block;
-    margin-right: 1rem;
+    margin-right: 6rem;
 }
 
 .product .mobile .filterSearchButton{
@@ -931,7 +930,8 @@
 }
 
 .product .mobile .filterButtonClearContainer{
-    display: inline-block;
+    margin-top: -3.25rem;
+    margin-left: 6rem;
 }
 
 .product .mobile .filterClearButton{

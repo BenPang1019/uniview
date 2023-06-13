@@ -47,7 +47,7 @@ export const Home = () => {
     },
   };
   return (
-    <motion.div className='home' intial={{ width:0}} animate={{ width:'100%' }} exit={{ x:window.innerWidth,transition:{duration:0.13} }}>
+    <motion.div className='home' >
     <Helmet>
         <meta name="author" content="https://wdatechnology.com" />
         <title>One Stop Security Solution &amp; Provider In Malaysia | Uniview</title>
@@ -66,53 +66,30 @@ export const Home = () => {
             <h1 className='container-one-h-h-h'>Enabling a safer society <br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and smarter living</h1>
           </div>
           <div className='container-card'>
-            <Swiper
-              navigation={true}
-              pagination={true}
-              loop={true}
-              slidesPerView={1}
-              slidesPerGroup={1}
-              allowTouchMove={false}
-              modules={[Navigation, Pagination]}
-            >
-            <SwiperSlide>
+            <Link to="/products" state={{ product:{category:'IP PBX System'} }} onClick={scrollToTop}>
               <div className='card grow'>
                 <img src={ImageOne}/>
-                <h3 className='card-h'>IP PBX Phone System</h3>
+                <h3 className='card-h'>IP PBX System</h3>
               </div>
+            </Link>
+            <Link to="/products" state={{ product:{category:'Security Alarm System'} }} onClick={scrollToTop}>
               <div className='card grow'>
                 <img src={ImageTwo} />
                 <h3 className='card-h'>Alarm Security System</h3>
               </div>
+            </Link>
+            <Link to="/products" state={{ product:{category:'Solar System Solution'} }} onClick={scrollToTop}>
               <div className='card grow'>
                 <img src={ImageThree} />
                 <h3 className='card-h'>Solar System Solution</h3>
               </div>
+            </Link>
+            <Link to="/products" state={{ product:{category:'Auto Door System'} }} onClick={scrollToTop}>
               <div className='card grow'>
                 <img src={ImageFour} />
                 <h3 className='card-h'>Gate System</h3>
               </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className='card grow'>
-                <img src={ImageOne} />
-                <h3 className='card-h'>IP PBX Phone System</h3>
-              </div>
-              <div className='card grow'>
-                <img src={ImageTwo} />
-                <h3 className='card-h'>Alarm Security System</h3>
-              </div>
-              <div className='card grow'>
-                <img src={ImageThree} />
-                <h3 className='card-h'>Solar System Solution</h3>
-              </div>
-              <div className='card grow'>
-                <img src={ImageFour} />
-                <h3 className='card-h'>Gate System</h3>
-              </div>
-            </SwiperSlide>
-            <div className='empty-container'></div>
-            </Swiper>
+            </Link>
           </div>
 
           <div className='containerThree'>
@@ -137,7 +114,7 @@ export const Home = () => {
               <p className='container-image-p'>Provides many solutions to<br/> meet specific needs</p>
             </div>
             <div>
-            <button className='containerThree-button'>Explore</button>
+            <Link style={{ textDecoration:'none' }} to='/about' onClick={scrollToTop}><button className='containerThree-button'>Explore</button></Link>
             </div>
           </div>
 
@@ -190,89 +167,101 @@ export const Home = () => {
           <div className='containerFive'>
             <h1 className='containerFiveHeader'>Popular Products</h1>
             <div className='cardContainer inline'> 
+            <Link to="/productsDetails" state={{ product:{id:'1163'} }} onClick={scrollToTop}>
             <div className='containerFiveCard grow'>
               <img src={PopularOne}/>
               <p className='containerFivePrg'>ZKTeco HBL400 <br/>Smart Lock</p>
             </div>
+            </Link>
+            <Link to="/productsDetails" state={{ product:{id:'506'} }} onClick={scrollToTop}>
             <div className='containerFiveCard grow'>
               <img src={PopularTwo} />
               <p className='containerFivePrg'>Voom Backup <br/>Battery 12v7AH</p>
             </div>
+            </Link>
+            <Link to="/productsDetails" state={{ product:{id:'1103'} }} onClick={scrollToTop}>
             <div className='containerFiveCard grow'>
               <img src={PopularThree} />
               <p className='containerFivePrg'>ZKTeco TS2000<br/> Pro Tripod Tur...</p>
             </div>
+            </Link>
             </div>
             <div className='containerFiveCardMore inline'>
               <ol start="4">
                 <li>
-                  <Link className='containerFiveCardMorePrg'>Hikvision DS-PK LCD...</Link>
+                  <Link className='containerFiveCardMorePrg' to="/productsDetails" state={{ product:{id:'1066'} }} onClick={scrollToTop}>Hikvision DS-PK LCD...</Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>ZKTeco SF300 IP Fin... </Link>
+                  <Link className='containerFiveCardMorePrg' to="/productsDetails" state={{ product:{id:'1'} }} onClick={scrollToTop}>ZKTeco SF300 IP Fin... </Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>CCTV DVR Recorde...</Link>
+                  <Link className='containerFiveCardMorePrg' to="/productsDetails" state={{ product:{id:'634'} }} onClick={scrollToTop}>CCTV DVR Recorde...</Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>ZKTeco FBL200 Seri...</Link>
+                  <Link className='containerFiveCardMorePrg' to="/productsDetails" state={{ product:{id:'10'} }} onClick={scrollToTop}>ZKTeco Face Reader...</Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>Solar Garden Light</Link>
+                  <Link className='containerFiveCardMorePrg' to="/productsDetails" state={{ product:{id:'1177'} }} onClick={scrollToTop}>Solar Garden Light</Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>Reolink Go IP Camer...</Link>
+                  <Link className='containerFiveCardMorePrg' to="/productsDetails" state={{ product:{id:'1165'} }} onClick={scrollToTop}>Reolink Go </Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>VGATE-68 Stainless...</Link>
+                  <Link className='containerFiveCardMorePrg' to="/productsDetails" state={{ product:{id:'1082'} }} onClick={scrollToTop}>VGATE-68 Stainless...</Link>
                 </li>
               </ol>
               </div>
-              <Link to="/products" className='More'>More {'>'}</Link>
+              <Link to="/products" className='More' onClick={scrollToTop}>More {'>'}</Link>
           </div>
 
           <div className='containerFive'>
             <h1 className='containerFiveHeaderNew'>Whats' New ?</h1>
             <div className='cardContainer inline'> 
+            <Link to="/blogDetails" state={{ data:{id:'1'} }} onClick={scrollToTop}>
             <div className='containerFiveCard grow'>
               <img src={NewOne} />
-              <p className='containerFivePrgNew'>The Perks Of <br/> Using Smart <br/> Door Lock</p>
+              <p className='containerFivePrgNew'>2 in 1: ID Mix <br/> Mifare Card, <br/> All-in-one...</p>
             </div>
+            </Link>
+            <Link to="/blogDetails" state={{ data:{id:'2'} }} onClick={scrollToTop}>
             <div className='containerFiveCard grow'>
               <img src={NewTwo} />
-              <p className='containerFivePrgNew'>Coax Cable: 5 <br/> Benefits It <br/> Brings</p>
+              <p className='containerFivePrgNew'>Features of Ebelco <br/> 600-LED-TB-MC <br/> Electromagnetic...</p>
             </div>
+            </Link>
+            <Link to="/blogDetails" state={{ data:{id:'3'} }} onClick={scrollToTop}>
             <div className='containerFiveCard grow'>
               <img src={NewThree} />
-              <p className='containerFivePrgNew' >Top 5 <br/> Amusement<br/>  Park Turnstile...</p>
+              <p className='containerFivePrgNew' >4 Customer <br/> Service Ideas <br/> To Boost...</p>
             </div>
+            </Link>
             </div>
             <div className='containerFiveCardMore inline'>
               <ol start="4">
                 <li>
-                  <Link className='containerFiveCardMorePrg'>Benefits Of Central...</Link>
+                  <Link className='containerFiveCardMorePrg' to="/blogDetails" state={{ data:{id:'4'} }} onClick={scrollToTop}>Intelligent Traffic...</Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>Features & Benefits...  </Link>
+                  <Link className='containerFiveCardMorePrg' to="/blogDetails" state={{ data:{id:'5'} }} onClick={scrollToTop}>4 Types Of Smart... </Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>What Metal Detector...</Link>
+                  <Link className='containerFiveCardMorePrg' to="/blogDetails" state={{ data:{id:'6'} }} onClick={scrollToTop}>What Is Hotel Netwo...</Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>Popular Places To Vis...</Link>
+                  <Link className='containerFiveCardMorePrg' to="/blogDetails" state={{ data:{id:'7'} }} onClick={scrollToTop}>ViewSonic ViewBoard...</Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>Best CCTV Repair, H...</Link>
+                  <Link className='containerFiveCardMorePrg' to="/blogDetails" state={{ data:{id:'8'} }} onClick={scrollToTop}>What Is IoT?...</Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>Features & 5 Advant...</Link>
+                  <Link className='containerFiveCardMorePrg' to="/blogDetails" state={{ data:{id:'9'} }} onClick={scrollToTop}>Benefits Of Central...</Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>Coax Cable: 5 Benefi...</Link>
+                  <Link className='containerFiveCardMorePrg' to="/blogDetails" state={{ data:{id:'10'} }} onClick={scrollToTop}>Features & Benefits...</Link>
                 </li>
               </ol>
               </div>
-              <Link to="/products" className='More'>More {'>'}</Link>
+              <Link to="/blog" className='More' onClick={scrollToTop}>More {'>'}</Link>
           </div>
 
         
@@ -391,53 +380,30 @@ export const Home = () => {
           </div>
 
           <div className='container-card'>
-            <Swiper
-              navigation={true}
-              loop={true}
-              slidesPerView={1}
-              slidesPerGroup={1}
-              allowTouchMove={false}
-              modules={[Navigation]}
-              className='mySwiper'
-            >
-            <SwiperSlide>
+              <Link to="/products" state={{ product:{category:'IP PBX System'} }} onClick={scrollToTop}>
               <div className='card grow'>
                 <img src={ImageOne} />
                 <h3 className='card-h' >IP PBX Phone System</h3>
               </div>
+              </Link>
+              <Link to="/products" state={{ product:{category:'Security Alarm System'} }} onClick={scrollToTop}>
               <div className='card grow'>
                 <img src={ImageFour} />
                 <h3 className='card-h'>Alarm Security System</h3>
               </div>
+              </Link>
+              <Link to="/products" state={{ product:{category:'Solar System Solution'} }} onClick={scrollToTop}>
               <div className='card grow'>
                 <img src={ImageTwo} />
                 <h3 className='card-h'>Solar System Solution</h3>
               </div>
+              </Link>
+              <Link to="/products" state={{ product:{category:'Auto Door System '} }} onClick={scrollToTop}>
               <div className='card grow'>
                 <img src={ImageThree} />
                 <h3 className='card-h'>Gate System</h3>
               </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className='card grow'>
-                <img src={ImageOne} />
-                <h3 className='card-h'>IP PBX Phone System</h3>
-              </div>
-              <div className='card grow'>
-                <img src={ImageFour} />
-                <h3 className='card-h'>Alarm Security System</h3>
-              </div>
-              <div className='card grow'>
-                <img src={ImageTwo} />
-                <h3 className='card-h'>Solar System Solution</h3>
-              </div>
-              <div className='card grow'>
-                <img src={ImageThree} />
-                <h3 className='card-h'>Gate System</h3>
-              </div>
-            </SwiperSlide>
-            <div className='empty-container'></div>
-            </Swiper>
+              </Link>
           </div>
 
           <div className='containerThree'>
@@ -462,7 +428,7 @@ export const Home = () => {
               <p className='container-image-p'>Provides many solutions to<br/> meet specific needs</p>
             </div>
             <div>
-            <button className='containerThree-button'>Explore</button>
+            <Link style={{ textDecoration:'none' }} to='/about' onClick={scrollToTop}><button className='containerThree-button'>Explore</button></Link>
             </div>
           </div>
 
@@ -515,89 +481,101 @@ export const Home = () => {
 
           <div className='containerFive'>
             <h1 className='containerFiveHeader'>Popular Products</h1>
+            <Link to="/productsDetails" state={{ product:{id:'1163'} }} onClick={scrollToTop}>
             <div className='containerFiveCard grow'>
               <img src={PopularOne} />
               <p className='containerFivePrg'>ZKTeco HBL400 <br/>Smart Lock</p>
             </div>
+            </Link>
+            <Link to="/productsDetails" state={{ product:{id:'506'} }} onClick={scrollToTop}>
             <div className='containerFiveCard grow'>
               <img src={PopularTwo} />
               <p className='containerFivePrg'>Voom Backup <br/>Battery 12v7AH</p>
             </div>
+            </Link>
+            <Link to="/productsDetails" state={{ product:{id:'1103'} }} onClick={scrollToTop}>
             <div className='containerFiveCard grow'>
               <img src={PopularThree} />
               <p className='containerFivePrg'>ZKTeco TS2000<br/> Pro Tripod Tur...</p>
             </div>
+            </Link>
             <div className='containerFiveCardMore'>
               <ol start="4">
                 <li>
-                  <Link className='containerFiveCardMorePrg'>Hikvision DS-PK LCD...</Link>
+                  <Link to="/productsDetails" state={{ product:{id:'1066'} }} className='containerFiveCardMorePrg' onClick={scrollToTop}>Hikvision DS-PK LCD...</Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>ZKTeco SF300 IP Fin... </Link>
+                  <Link to="/productsDetails" state={{ product:{id:'1'} }} className='containerFiveCardMorePrg' onClick={scrollToTop}>ZKTeco SF300 IP Fin... </Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>CCTV DVR Recorde...</Link>
+                  <Link to="/productsDetails" state={{ product:{id:'634'} }} className='containerFiveCardMorePrg' onClick={scrollToTop}>CCTV DVR Recorde...</Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>ZKTeco FBL200 Seri...</Link>
+                  <Link to="/productsDetails" state={{ product:{id:'10'} }} className='containerFiveCardMorePrg' onClick={scrollToTop}>ZKTeco Face Reader...</Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>Solar Garden Light</Link>
+                  <Link to="/productsDetails" state={{ product:{id:'1177'} }} className='containerFiveCardMorePrg' onClick={scrollToTop}>Solar Garden Light</Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>Reolink Go IP Camer...</Link>
+                  <Link to="/productsDetails" state={{ product:{id:'1165'} }} className='containerFiveCardMorePrg' onClick={scrollToTop}>Reolink Go...</Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>VGATE-68 Stainless...</Link>
+                  <Link to="/productsDetails" state={{ product:{id:'1082'} }} className='containerFiveCardMorePrg' onClick={scrollToTop}>VGATE-68 Stainless...</Link>
                 </li>
               </ol>
               </div>
               <div>
-              <Link className='More'>More {'>'}</Link>
+              <Link className='More' onClick={scrollToTop}>More {'>'}</Link>
               </div>
           </div>
 
           <div className='containerFive'>
             <h1 className='containerFiveHeaderNew'>Whats' New ?</h1>
+            <Link to="/blogDetails" state={{ data:{id:'1'} }} onClick={scrollToTop}>
             <div className='containerFiveCard grow'>
               <img src={NewOne} />
-              <p className='containerFivePrgNew'>The Perks Of <br/> Using Smart <br/> Door Lock</p>
+              <p className='containerFivePrgNew'>2 in 1: ID Mix <br/> Mifare Card, <br/> All-in-one...</p>
             </div>
+            </Link>
+            <Link to="/blogDetails" state={{ data:{id:'2'} }} onClick={scrollToTop}>
             <div className='containerFiveCard grow'>
               <img src={NewTwo} />
-              <p className='containerFivePrgNew'>Coax Cable: 5 <br/> Benefits It <br/> Brings</p>
+              <p className='containerFivePrgNew'>Features of Ebelco <br/> 600-LED-TB-MC <br/> Electromagnetic...</p>
             </div>
+            </Link>
+            <Link to="/blogDetails" state={{ data:{id:'3'} }} onClick={scrollToTop}>
             <div className='containerFiveCard grow'>
               <img src={NewThree} />
-              <p className='containerFivePrgNew' >Top 5 <br/> Amusement<br/>  Park Turnstile...</p>
+              <p className='containerFivePrgNew' >4 Customer <br/> Service Ideas <br/> To Boost...</p>
             </div>
+            </Link>
             <div className='containerFiveCardMore'>
               <ol start="4">
                 <li>
-                  <Link className='containerFiveCardMorePrg'>Benefits Of Central...</Link>
+                  <Link className='containerFiveCardMorePrg' to="/blogDetails" state={{ data:{id:'4'} }} onClick={scrollToTop}>Intelligent Traffic...</Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>Features & Benefits...  </Link>
+                  <Link className='containerFiveCardMorePrg' to="/blogDetails" state={{ data:{id:'5'} }} onClick={scrollToTop}>4 Types Of Smart... </Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>What Metal Detector...</Link>
+                  <Link className='containerFiveCardMorePrg' to="/blogDetails" state={{ data:{id:'6'} }} onClick={scrollToTop}>What Is Hotel Netwo...</Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>Popular Places To Vis...</Link>
+                  <Link className='containerFiveCardMorePrg' to="/blogDetails" state={{ data:{id:'7'} }} onClick={scrollToTop}>ViewSonic ViewBoard...</Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>Best CCTV Repair, H...</Link>
+                  <Link className='containerFiveCardMorePrg' to="/blogDetails" state={{ data:{id:'8'} }} onClick={scrollToTop}>What Is IoT?...</Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>Features & 5 Advant...</Link>
+                  <Link className='containerFiveCardMorePrg' to="/blogDetails" state={{ data:{id:'9'} }} onClick={scrollToTop}>Benefits Of Central...</Link>
                 </li>
                 <li>
-                  <Link className='containerFiveCardMorePrg'>Coax Cable: 5 Benefi...</Link>
+                  <Link className='containerFiveCardMorePrg' to="/blogDetails" state={{ data:{id:'10'} }} onClick={scrollToTop}>Features & Benefits...</Link>
                 </li>
               </ol>
               </div>
               <div>
-              <Link className='More'>More {'>'}</Link>
+              <Link className='More' onClick={scrollToTop}>More {'>'}</Link>
               </div>
           </div>
 
@@ -616,8 +594,10 @@ export const Home = () => {
               <div className='containerSixCard'>
                 <img src={IPPHome} className="containerSixImageW"/>
                 <div className='prgCotainer'>
+                <p className='containerSixCardPrg'>
                   <h1 className='containerSixHOne'>IP PBX Phone System</h1>
-                  <p>VSH Technology provides branded IP PHONE that equipped IP PBX PHONE SYSTEM. Some of them are COOVOX-U30, X1S Enterprise IP Phone and X1SP Enterprise IP Phone. Our IP Phone System have features like Flexible Installation Mode, Support EHS Headset Free Your Hands, Enhanced HD Audio Communication, Third-party Software Integrations, Call Recording, Caller ID, Call Screening, Music on Hold, Voicemail, and more.<br/><br/>Automated Attendants are perhaps one of the most recognizable and essential of all VoIP business phone features. It allows incoming calls to be transferred to the correct extension without the requirement for a receptionist. Not only that, IP Phone even have features Custom Ringback. A custom ringback refers to what your inbound callers will hear while waiting to speak with someone. It does not necessarily have to be music. It could be a series of messages accompanied by a unique. In addition, Conferencing Tools, VoIP business phones now contained feature s that allow businesses to conduct audio or video web conferencing. There tools are increasingly vital to companies that find themselves operating remotely.</p>
+                  VSH Technology provides branded IP PHONE that equipped IP PBX PHONE SYSTEM. Some of them are COOVOX-U30, X1S Enterprise IP Phone and X1SP Enterprise IP Phone. Our IP Phone System have features like Flexible Installation Mode, Support EHS Headset Free Your Hands, Enhanced HD Audio Communication, Third-party Software Integrations, Call Recording, Caller ID, Call Screening, Music on Hold, Voicemail, and more.<br/><br/>Automated Attendants are perhaps one of the most recognizable and essential of all VoIP business phone features. It allows incoming calls to be transferred to the correct extension without the requirement for a receptionist. Not only that, IP Phone even have features Custom Ringback. A custom ringback refers to what your inbound callers will hear while waiting to speak with someone. It does not necessarily have to be music. It could be a series of messages accompanied by a unique. In addition, Conferencing Tools, VoIP business phones now contained feature s that allow businesses to conduct audio or video web conferencing. There tools are increasingly vital to companies that find themselves operating remotely.
+                </p>
                 </div>
               </div>
               </SwiperSlide>

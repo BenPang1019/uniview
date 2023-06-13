@@ -1,6 +1,4 @@
 import React, { useState,useEffect } from 'react'
-import Navbar from '../../Components/Navigation/Navbar'
-import Footer from '../../Components/Footer/Footer'
 import Service from '../../Images/Service.svg'
 import FAQ from '../../Images/FAQ.svg'
 import Contact from '../../Images/Contact.svg'
@@ -11,10 +9,13 @@ import Close from '../../Images/Close.svg'
 import QrCode from '../../Images/qrcode.jpeg'
 
 import { Helmet } from 'react-helmet';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+
 import {motion} from "framer-motion"
+import Swal from 'sweetalert2'
 
 export const Support= () =>{
+    const axiosInstance = axios.create({baseURL:process.env.REACT_APP_API_URL,});
+
     const [active1, setActive1] = useState(false);
     const [active2, setActive2] = useState(false);
     const [active3, setActive3] = useState(false);
@@ -32,9 +33,147 @@ export const Support= () =>{
     const [active15, setActive15] = useState(false);
     const [active16, setActive16] = useState(false);
 
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('')
+    const [email, setEmail] = useState('')
+    const [message, setMessage] = useState('')
+    const [company, setCompany] = useState('')
+    const [type, setType] = useState('')
+    const [service, setService] = useState('')
+
+    const handleRequest = async (e) => {
+        e.preventDefault()
+        if(name==0){
+            Swal.fire({
+              title:'Name Are Required',
+              customClass: {
+                confirmButton: 'alertButton',
+              }
+            })
+          }else
+          if(email==0){
+            Swal.fire({
+              title:'E-mail Are Required',
+              customClass: {
+                confirmButton: 'alertButton',
+              }
+            })
+          }else
+          if(phone==0){
+            Swal.fire({
+              title:'Phone Number Are Required',
+              customClass: {
+                confirmButton: 'alertButton',
+              }
+            })
+          }else
+          if(service==0){
+            Swal.fire({
+              title:'Please Select One Type of Service',
+              customClass: {
+                confirmButton: 'alertButton',
+              }
+            })
+          }else
+          if(company==0){
+            Swal.fire({
+              title:'Company Name Are Required',
+              customClass: {
+                confirmButton: 'alertButton',
+              }
+            })
+          }else
+          if(type==0){
+            Swal.fire({
+              title:'Please Select One Type of Product',
+              customClass: {
+                confirmButton: 'alertButton',
+              }
+            })
+          }else{
+            const body = {
+                name,
+                phone, 
+                email, 
+                message,
+                company,
+                type,
+                service
+            }
+        
+            try {
+              const res = await axiosInstance.post("/requestMail", body);
+              Swal.fire({
+                title:`${res.data}`,
+                customClass: {
+                  confirmButton: 'alertButton',
+                }
+              })
+            } catch (err) {
+              
+            }
+          }
+      }
+
+      const handleContact = async (e) => {
+        e.preventDefault()
+        if(name==0){
+            Swal.fire({
+              title:'Name Are Required',
+              customClass: {
+                confirmButton: 'alertButton',
+              }
+            })
+          }else
+          if(email==0){
+            Swal.fire({
+              title:'E-mail Are Required',
+              customClass: {
+                confirmButton: 'alertButton',
+              }
+            })
+          }else
+          if(phone==0){
+            Swal.fire({
+              title:'Phone Number Are Required',
+              customClass: {
+                confirmButton: 'alertButton',
+              }
+            })
+          }else
+          if(type==0){
+            Swal.fire({
+              title:'Please Select One Type of Product',
+              customClass: {
+                confirmButton: 'alertButton',
+              }
+            })
+          }else{
+            const body = {
+                name,
+                phone, 
+                email, 
+                message,
+                type,
+            }
+        
+            try {
+              const res = await axiosInstance.post("/contactMail", body);
+              Swal.fire({
+                title:`${res.data}`,
+                customClass: {
+                  confirmButton: 'alertButton',
+                }
+              })
+            } catch (err) {
+              
+            }
+          }
+      }
+
       
     return(
-        <motion.div className='support' intial={{ width:0}} animate={{ width:'100%' }} exit={{ x:window.innerWidth,transition:{duration:0.2} }}>
+        <motion.div className='support' >
         <Helmet>
             <meta name="author" content="https://wdatechnology.com" />
             <title>Enquiry & Support | Uniview Solution Sdn Bhd</title>
@@ -79,15 +218,15 @@ export const Support= () =>{
                         <div className='containerTwoFormServiceType'>
                             <h1 className='containerTwoFormServiceTypeH'>Type of Service</h1>
                             <div className='serviceRadio'>
-                            <input type='radio' value='Product Status' name='serviceRadio'/>
+                            <input type='radio' value='Product Status' name='serviceRadio' onChange = {(e) => setService(e.target.value)} required/>
                             <label >Product Status</label>
                             </div>
                             <div className='serviceRadio'>
-                            <input type='radio' value='Repair/Service' name='serviceRadio'/>
+                            <input type='radio' value='Repair/Service' name='serviceRadio' onChange = {(e) => setService(e.target.value)} required/>
                             <label >Repair/Service</label>
                             </div>
                             <div className='serviceRadio'>
-                            <input type='radio' value='Warranty Check' name='serviceRadio'/>
+                            <input type='radio' value='Warranty Check' name='serviceRadio' onChange = {(e) => setService(e.target.value)} required/>
                             <label >Warranty Check</label>
                             </div>
                         </div>
@@ -108,42 +247,42 @@ export const Support= () =>{
                                 <label className='userDetailLabel'>Company Name:</label>
                             </div>
                             <div className='userDetailInputContainer'>
-                                <input className='userDetailInput' type='text'></input>
-                                <input className='userDetailInput' type='text'></input>
-                                <input className='userDetailInput' type='text'></input>
-                                <input className='userDetailInput' type='text'></input>
+                                <input className='userDetailInput' type='text' value = {name} onChange = {(e) => setName(e.target.value)} name="name" required></input>
+                                <input className='userDetailInput' type='text' value = {phone} onChange = {(e) => setPhone(e.target.value)} name="phone" required></input>
+                                <input className='userDetailInput' type='text' value = {email} onChange = {(e) => setEmail(e.target.value)} name="email" required></input>
+                                <input className='userDetailInput' type='text' value = {company} onChange = {(e) => setCompany(e.target.value)} name="company" required></input>
                             </div>
                         </div>
                         <div className='containerTwoFormProductType'>
                             <h1 className='containerTwoFormProductTypeH'>Product Type</h1>
-                                <div className='productRadio'>
-                                    <input type='radio' value="Access Control" name='productRadio'/>
+                                <div className='productRadio' style={{ marginLeft:'10rem' }}>
+                                    <input type='radio' value="Access Control" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>Access Control</label><br/>
-                                    <input type='radio' value="Auto Sliding Door" name='productRadio'/>
+                                    <input type='radio' value="Auto Sliding Door" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>Auto Sliding Door</label><br/>
-                                    <input type='radio' value="DVR Recorders" name='productRadio'/>
+                                    <input type='radio' value="DVR Recorders" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>DVR Recorders</label><br/>
-                                    <input type='radio' value="Power Supply" name='productRadio'/>
+                                    <input type='radio' value="Power Supply" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>Power Supply</label>
                                 </div>
                                 <div className='productRadio'>
-                                    <input type='radio' value="Alarm System" name='productRadio'/>
+                                    <input type='radio' value="Alarm System" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>Alarm System</label><br/>
-                                    <input type='radio' value="Barrier Gate" name='productRadio'/>
+                                    <input type='radio' value="Barrier Gate" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>Barrier Gate</label><br/>
-                                    <input type='radio' value="HDD" name='productRadio'/>
+                                    <input type='radio' value="HDD" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>HDD</label><br/>
-                                    <input type='radio' value="Smart Door Lock" name='productRadio'/>
+                                    <input type='radio' value="Smart Door Lock" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>Smart Door Lock</label>
                                 </div>
                                 <div className='productRadio'>
-                                    <input type='radio' value="Auto Gate" name='productRadio'/>
+                                    <input type='radio' value="Auto Gate" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>Auto Gate</label><br/>
-                                    <input type='radio' value="CCTV" name='productRadio'/>
+                                    <input type='radio' value="CCTV" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>CCTV</label><br/>
-                                    <input type='radio' value="Metal Detector" name='productRadio'/>
+                                    <input type='radio' value="Metal Detector" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>Metal Detector</label><br/>
-                                    <input type='radio' value="UHF" name='productRadio'/>
+                                    <input type='radio' value="UHF" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>UHF</label>
                                 </div>  
                         </div>
@@ -151,10 +290,10 @@ export const Support= () =>{
                             <div className='questionDetailLabelContainer'>
                                 <label className='questionDetailLabel'>More Details?</label>
                             </div>
-                            <textarea className='questionDetailTextArea'/>
+                            <textarea className='questionDetailTextArea' value = {message} onChange = {(e) => setMessage(e.target.value)} name="message" required/>
                         </div>
                         <div className='submitBtn'>
-                            <button className='submit'>Submit</button>
+                            <button className='submit' onClick={handleRequest}>Submit</button>
                         </div>
                     </div>
                 </div>
@@ -176,36 +315,36 @@ export const Support= () =>{
                                 <label className='userDetailLabel'>E-mail:</label>
                             </div>
                             <div className='userDetailInputContainerThree'>
-                                <input className='userDetailInput' type='text'></input>
-                                <input className='userDetailInput' type='text'></input>
-                                <input className='userDetailInput' type='text'></input>
+                                <input className='userDetailInput' type='text' value = {name} onChange = {(e) => setName(e.target.value)} name="name" required></input>
+                                <input className='userDetailInput' type='text' value = {phone} onChange = {(e) => setPhone(e.target.value)} name="phone" required></input>
+                                <input className='userDetailInput' type='text' value = {email} onChange = {(e) => setEmail(e.target.value)} name="email" required></input>
                             </div> 
                         </div>
 
                         <div className='containerThreeFormProductType'>
                             <h1 className='containerThreeFormProductTypeH'>Product Type</h1>
-                                <div className='productRadio'>
-                                    <input type='radio' value="Access Control" name='productRadio'/>
+                                <div className='productRadio' style={{ marginLeft:'10rem' }}>
+                                    <input type='radio' value="Access Control" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>Access Control</label><br/>
-                                    <input type='radio' value="Auto Sliding Door" name='productRadio'/>
+                                    <input type='radio' value="Auto Sliding Door" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>Auto Sliding Door</label><br/>
-                                    <input type='radio' value="DVR Recorders" name='productRadio'/>
+                                    <input type='radio' value="DVR Recorders" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>DVR Recorders</label><br/>
                                 </div>
                                 <div className='productRadio'>
-                                    <input type='radio' value="Alarm System" name='productRadio'/>
+                                    <input type='radio' value="Alarm System" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>Alarm System</label><br/>
-                                    <input type='radio' value="Barrier Gate" name='productRadio'/>
+                                    <input type='radio' value="Barrier Gate" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>Barrier Gate</label><br/>
-                                    <input type='radio' value="HDD" name='productRadio'/>
+                                    <input type='radio' value="HDD" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>HDD</label><br/>
                                 </div>
                                 <div className='productRadio'>
-                                    <input type='radio' value="Auto Gate" name='productRadio'/>
+                                    <input type='radio' value="Auto Gate" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>Auto Gate</label><br/>
-                                    <input type='radio' value="CCTV" name='productRadio'/>
+                                    <input type='radio' value="CCTV" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>CCTV</label><br/>
-                                    <input type='radio' value="Metal Detector" name='productRadio'/>
+                                    <input type='radio' value="Metal Detector" name='productRadio' onChange = {(e) => setType(e.target.value)} required/>
                                     <label>Metal Detector</label><br/>
                                 </div>
                         </div>
@@ -213,10 +352,10 @@ export const Support= () =>{
                             <div className='questionDetailLabelContainer'>
                                 <label className='questionDetailLabel'>Requirement?</label>
                             </div>
-                            <textarea className='questionDetailTextArea'/>
+                            <textarea className='questionDetailTextArea' value = {message} onChange = {(e) => setMessage(e.target.value)} name="message" required/>
                         </div>
                         <div className='submitBtn'>
-                            <button className='submit'>Submit</button>
+                            <button className='submit' onClick={handleContact}>Submit</button>
                         </div>
                     </div>
                 </div>

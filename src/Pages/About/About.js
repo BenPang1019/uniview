@@ -1,8 +1,6 @@
 import React,{useState,useEffect} from 'react'
-import Navbar from '../../Components/Navigation/Navbar'
-import Footer from '../../Components/Footer/Footer'
 import '../About/About.css'
-
+import { Link } from 'react-router-dom'
 import background from '../../Images/AboutBackground.jpg'
 import backgroundTwo from '../../Images/AboutBackgroundTwo.svg'
 import Repairing from '../../Images/Repairing.svg'
@@ -51,7 +49,7 @@ export const About = () => {
     }, []);
       
     return(
-        <motion.div className='about' intial={{ width:0}} animate={{ width:'100%' }} exit={{ x:window.innerWidth,transition:{duration:0.2} }}>
+        <motion.div className='about' >
         <Helmet>
             <meta name="author" content="https://wdatechnology.com" />
             <title>About Us | Uniview Solution Sdn Bhd</title>
@@ -113,7 +111,7 @@ export const About = () => {
                     <p className='containerImageP'>We offer warranty check for<br/> your products</p>
                     </div>
                     <div>
-                    <button className='containerFiveButton'>Explore</button>
+                    <Link style={{ textDecoration:'none' }} to='/support'><button className='containerFiveButton'>Explore</button></Link>
                 </div>
             </div>
             </div>
@@ -130,15 +128,18 @@ export const About = () => {
 
                 <div className='containerTwo'>
                     <div className='marginTest'>
-                        <h1 className='containerTwoHOne'>{count}+</h1>
+                        <h1 className='containerTwoHOne'>{count}++</h1>
+                        <h3 className='containerTwoHTwo'>employees</h3>
                         <h1 className='containerTwoHOne'>{countTwo}+</h1>
-                        <h1 className='containerTwoHOne'>{countThree}K+</h1><br/>
-                    </div>
-                    <div className='margin'>
-                        <h3 className='containerTwoHTwo'>employees</h3><br/><br/><br/><br/><br/><br/>
-                        <h3 className='containerTwoHTwo'>partners</h3><br/><br/><br/><br/><br/><br/>
+                        <h3 className='containerTwoHTwo'>partners</h3>
+                        <h1 className='containerTwoHOne'>{countThree}K+</h1>
                         <h3 className='containerTwoHTwo'>products</h3>
                     </div>
+                    {/* <div className='margin'>
+                        <h3 className='containerTwoHTwo'>employees</h3>
+                        <h3 className='containerTwoHTwo'>partners</h3>
+                        <h3 className='containerTwoHTwo'>products</h3>
+                    </div> */}
                 </div>
 
                 <div className='containerThree'>
@@ -172,7 +173,7 @@ export const About = () => {
                     <p className='containerImageP'>We offer warranty check for<br/> your products</p>
                     </div>
                     <div>
-                    <button className='containerFiveButton'>Explore</button>
+                    <Link style={{ textDecoration:'none' }} to='/support'><button className='containerFiveButton'>Explore</button></Link>
                 </div>
             </div>
             </div>
